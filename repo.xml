@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meta 
+  
+  
+  
+  xmlns="http://exist-db.org/xquery/repo">
+  <description>new documentation prototype</description>
+  <author>Duncan Paterson</author>
+  <website>https://github.com/duncdrum</website>
+  <status>beta</status>
+  <license>AGPL-3.0</license>
+  <copyright>true</copyright>
+  <type>application</type>
+  <target>docs</target>
+  <prepare>pre-install.xql</prepare>
+  <finish>post-install.xql</finish>
+</meta>
