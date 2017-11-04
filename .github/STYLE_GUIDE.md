@@ -28,3 +28,12 @@ Use ``exist-db`` for greater consistency, stick to describing the current versio
 
 ### code listings
 avoid silent glyphs like ``""`` or ``()`` around code listings.
+
+### info boxes
+we has them consistency would help. Avoid putting ``Warning`` ``Note`` etc into the title, use the appropriate box types instead.
+*   warning
+*   note
+
+### screenshots
+Screenshots of, e.g. eXide or Dashboard, should be versioned so they can be more easily updated. Simply include the version in the file name of the png:
+``dashboard-v0.0.2.png``
