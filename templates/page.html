@@ -1,256 +1,108 @@
 <html lang="en">
-    <head>
-        <title data-template="config:app-title">App Title</title>
-        <!-- meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta data-template="config:app-meta"/>
-        <!-- styles -->
-        <link rel="shortcut icon" href="$shared/resources/images/exist_icon_16x16.ico"/>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'/>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'/>
-        <!-- Global CSS -->
-        <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css"/>
-        <!-- Plugins CSS -->
-        <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css"/>
-        <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css"/>
 
-        <!-- Theme CSS -->
-        <link id="theme-style" rel="stylesheet" href="assets/css/styles.css"/>
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
+<head>
+  <title data-template="config:app-title">App Title</title>
+  <!-- meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta data-template="config:app-meta" />
+  <!-- styles -->
+  <link rel="shortcut icon" href="$shared/resources/images/exist_icon_16x16.ico" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css" />
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css" />
+
+  <!-- Theme CSS -->
+  <link id="theme-style" rel="stylesheet" href="assets/css/styles.css" />
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
           <![endif]-->
-    </head>
+</head>
 
-    <body class="landing-page">
+<body class="landing-page">
 
-      <div class="page-wrapper">
+  <div class="page-wrapper">
 
-        <!-- ******Header****** -->
-        <header class="header text-center">
-          <div class="container">
-            <div class="branding">
-              <h1 class="logo">
+    <!-- ******Header****** -->
+    <header class="header text-center">
+      <div class="container">
+        <div class="branding">
+          <h1 class="logo">
                             <img src="assets/images/existdb-logo.png" alt="exist-db" style="height:1em"/>
                             <span class="text-bold">Documentation</span>
               </h1>
-            </div>
-            <!--//branding-->
+        </div>
+        <!--//branding-->
 
-            <div class="tagline">
-              <p>Open source native XML database</p>
-            </div>
-            <!--//tagline-->
-            <div class="social-container">
-              <div class="twitter-tweet">
-                <a href="https://twitter.com/share" class="twitter-share-button" data-text="existdb open source native XML database" data-via="existdb">Tweet</a>
-                <script>
-                  ! function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0],
-                      p = /^http:/.test(d.location) ? 'http' : 'https';
-                    if (!d.getElementById(id)) {
-                      js = d.createElement(s);
-                      js.id = id;
-                      js.src = p + '://platform.twitter.com/widgets.js';
-                      fjs.parentNode.insertBefore(js, fjs);
-                    }
-                  }(document, 'script', 'twitter-wjs');
-                </script>
-              </div>
-              <!--//tweet-->
-
-            </div>
-            <!--//social-container-->
+        <div class="tagline">
+          <p>Open source native XML database</p>
+        </div>
+        <!--//tagline-->
+        <div class="social-container">
+          <div class="twitter-tweet">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-text="existdb open source native XML database" data-via="existdb">Tweet</a>
+            <script>
+              ! function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                  p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = p + '://platform.twitter.com/widgets.js';
+                  fjs.parentNode.insertBefore(js, fjs);
+                }
+              }(document, 'script', 'twitter-wjs');
+            </script>
           </div>
-          <!--//container-->
-        </header>
+          <!--//tweet-->
+
+        </div>
+        <!--//social-container-->
       </div>
-    </body>
-    <body id="grey-top" class="site:expand-links?base=http://exist-db.org/">
-        <div class="grey-bot">
-            <div class="container" id="main-container">
-                <div class="row">
-                    <div class="col-md-12" id="header">
-                        <a href="/" id="logo">eXistDB</a>
-                    </div>
-                </div>
-            </div>
-            <nav class="navbar navbar-default" role="navigation">
-                <div class="container">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"/>
-                        <span class="icon-bar"/>
-                        <span class="icon-bar"/>
-                    </button>
-                    <div class="navbar-collapse collapse" id="navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown" id="about">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{dashboard}/index.html">Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://exist-db.org">eXist-db.org</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown" id="demo">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Demo</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{demo}/index.html">Overview</a>
-                                    </li>
-                                    <li>
-                                        <a href="{demo}/examples/basic/basics.html">Basic XQuery Examples</a>
-                                    </li>
-                                    <li>
-                                        <a href="{demo}/examples/basic/xquery3.html">XQuery 3.0 Examples</a>
-                                    </li>
-                                    <li>
-                                        <a href="{demo}/examples/web/index.html">Web Examples</a>
-                                    </li>
-                                    <li>
-                                        <a href="{demo}/examples/urlrewriting/index.html">URL Rewriting</a>
-                                    </li>
-                                    <li>
-                                        <a href="{demo}/examples/special/index.html">Special Features</a>
-                                    </li>
-                                    <li>
-                                        <a href="{demo}/examples/templating/templates.html">Templating</a>
-                                    </li>
-                                    <li>
-                                        <a href="{demo}/cex-demo.html">Content Extraction</a>
-                                    </li>
-                                    <li>
-                                        <a href="{demo}/examples/tests/test.html">Unit Testing</a>
-                                    </li>
-                                    <li>
-                                        <a href="{demo}/examples/contacts/html/home.html?browseContacts">RestXQ and
-                                            AngularJS</a>
-                                    </li>
-                                    <li>
-                                        <a href="{demo}/examples/xforms/">XForms and RestXQ</a>
-                                    </li>
-                                    <li>
-                                        <a href="{demo}/examples/contacts/html/home.html">Contacts RestXQ Demo</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown" id="documentation">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{doc}/documentation.xml">Documentation</a>
-                                    </li>
-                                    <li>
-                                        <a href="{fundocs}/index.html">XQuery Functions</a>
-                                    </li>
-                                    <li>
-                                        <a href="{doc}/getting-help.xml">Get Support</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://exist-db.org/exist/apps/wiki/">News / Wiki</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://en.wikibooks.org/wiki/XQuery">XQuery Wikibook</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown" id="development">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Development</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{eXide}/index.html">eXide</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://exist-db.org/api/index.html">Javadocs</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://github.com/eXist-db/exist/issues">Bug Tracker</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://github.com/eXist-db/exist">Source code</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://github.com/eXist-db/exist#contributing-to-exist">Submit
-                                            Patches</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown" id="administration">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{dashboard}/index.html">Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a href="/webstart/exist.jnlp">Webstart Client</a>
-                                    </li>
-                                    <li>
-                                        <a href="{monex}/">Monitoring and Profiling</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <form class="navbar-form navbar-right form-group" role="search" action="search.html" method="GET">
-                            <input type="text" name="q" class="search-query form-control" placeholder="Search Documentation"/>
-                        </form>
-                    </div>
-                </div>
-            </nav>
-            <div class="container">
-                <div id="main" class="row"/>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <a id="poweredby" href="http://exist-db.org"/>
-                </div>
-            </div>
-        </div>
-        <div id="footer">
-            <div class="container">
-                <ul>
-                    <li>
-                        <a href="http://exist-db.org">eXist-db.org</a>
-                    </li>
-                    <li>
-                        <a href="{doc}/documentation.xml">Documentation</a>
-                    </li>
-                    <li>
-                        <a href="{demo}/index.html">Demo</a>
-                    </li>
-                    <li class="hidden-xs-inline">
-                        <a href="/status">Status</a>
-                    </li>
-                    <li>
-                        <a href="{doc}/legal.xml">Legal</a>
-                    </li>
-                </ul>
-                <div id="copyright" class="hidden-xs">
-                    <p>Copyright eXist-db Project 2014</p>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript" src="$shared/resources/scripts/jquery/jquery-1.7.1.min.js"/>
-        <script type="text/javascript" src="$shared/resources/scripts/bootstrap-3.0.3.min.js"/>
-        <script type="text/javascript" src="$shared/resources/scripts/ace/ace.js"/>
-        <script type="text/javascript" src="$shared/resources/scripts/ace/mode-javascript.js"/>
-        <script type="text/javascript" src="$shared/resources/scripts/ace/mode-text.js"/>
-        <script type="text/javascript" src="$shared/resources/scripts/ace/mode-xquery.js"/>
-        <script type="text/javascript" src="$shared/resources/scripts/ace/mode-java.js"/>
-        <script type="text/javascript" src="$shared/resources/scripts/ace/mode-css.js"/>
-        <script type="text/javascript" src="$shared/resources/scripts/ace/mode-xml.js"/>
-        <script type="text/javascript" src="$shared/resources/scripts/ace/theme-tomorrow_night.js"/>
-        <script type="text/javascript" src="$shared/resources/scripts/highlight.js"/>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $(".code").highlight();
-            });
-        </script>
-    </body>
+      <!--//container-->
+    </header>
+  </div>
+  <!--//page-wrapper-->
+
+  <div class="container">
+      <div id="main" class="row"/>
+  </div>
+
+  <footer class="footer text-center">
+    <div class="container">
+      <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+      <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a>. Refactored for <a href="https://exist-db.org">exist-db</a> by <a href="https://github.com/duncdrum">Duncan Paterson</a>.</small>
+
+    </div>
+    <!--//container-->
+  </footer>
+  <!--//footer-->
+
+  <!-- Main Javascript (new)-->
+  <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
+  <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+  <script type="text/javascript" src="assets/js/main.js"></script>
+  <!-- Javascript (old) -->
+  <script type="text/javascript" src="$shared/resources/scripts/ace/ace.js" />
+  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-javascript.js" />
+  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-text.js" />
+  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-xquery.js" />
+  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-java.js" />
+  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-css.js" />
+  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-xml.js" />
+  <script type="text/javascript" src="$shared/resources/scripts/ace/theme-tomorrow_night.js" />
+  <script type="text/javascript" src="$shared/resources/scripts/highlight.js" />
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".code").highlight();
+    });
+  </script>
+</body>
+
 </html>
