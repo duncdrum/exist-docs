@@ -38,7 +38,8 @@ ant
 If you see ``BUILD SUCCESSFUL`` ant has generated a ``exist-docs-3.0.0.xar`` file in the ``build/`` folder. To install it, follow the instructions [above](#installation).
 
 ## Contributing
-You can take a look at the [Contribution guidelines for this project](.github/CONTRIBUTING.md)
+You can take a look at our [Contribution guidelines](.github/CONTRIBUTING.md) and [Style Guide](.github/STYLE_GUIDE.md).
+
 
 ## License
 
