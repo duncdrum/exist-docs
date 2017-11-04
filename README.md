@@ -8,14 +8,14 @@
 
 <img src="icon.png" align="left" width="25%"/>
 
-new documentation prototype
+new documentation prototype based on pretty-docs theme. 
 
 ## Requirements
 *   [exist-db](http://exist-db.org/exist/apps/homepage/index.html) version: ``3.0.4`` or greater
 *   [ant](http://ant.apache.org) version: ``1.10.1`` \(for building from source\)
 
 ## Installation
-1.  Download  the ``exist docs-3.0.0.xar`` file from GitHub [releases](https://github.com/duncdrum/exist docs/releases) page.
+1.  Download  the ``exist-docs-3.0.0.xar`` file from GitHub [releases](https://github.com/duncdrum/exist docs/releases) page.
 2.  Open the [dashboard](http://localhost:8080/exist/apps/dashboard/index.html) of your eXist-db instance and click on ``package manager``.
     1.  Click on the ``add package`` symbol in the upper left corner and select the ``.xar`` file you just downloaded.
 3.   You have successfully installed exist docs into exist.
@@ -35,7 +35,7 @@ ant
    ant deploy
    ```   
 
-If you see ``BUILD SUCCESSFUL`` ant has generated a ``exist docs-3.0.0.xar`` file in the ``build/`` folder. To install it, follow the instructions [above](#installation).
+If you see ``BUILD SUCCESSFUL`` ant has generated a ``exist-docs-3.0.0.xar`` file in the ``build/`` folder. To install it, follow the instructions [above](#installation).
 
 ## Contributing
 You can take a look at the [Contribution guidelines for this project](.github/CONTRIBUTING.md)
@@ -43,6 +43,7 @@ You can take a look at the [Contribution guidelines for this project](.github/CO
 ## License
 
 AGPL-3.0 © [Duncan Paterson](https://github.com/duncdrum)
+CC-BY 3.0 [Xiaoying Riley](https://twitter.com/3rdwave_themes)
 
 
 [license-img]: https://img.shields.io/badge/license-AGPL%20v3-blue.svg
