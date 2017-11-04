@@ -37,3 +37,6 @@ we has them consistency would help. Avoid putting ``Warning`` ``Note`` etc into 
 ### screenshots
 Screenshots of, e.g. eXide or Dashboard, should be versioned so they can be more easily updated. Simply include the version in the file name of the png:
 ``dashboard-v0.0.2.png``
+
+### links
+avoid links to external resources from within the main text. Such links should go into further reading table at the bottom of each page.
