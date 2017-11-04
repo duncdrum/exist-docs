@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="all" name="exist docs">
+<project default="all" name="exist_docs">
   <xmlproperty file="expath-pkg.xml"/>
   <property name="project.version" value="${package(version)}"/>
-  <property name="project.app" value="exist docs"/>
+  <property name="project.app" value="exist_docs"/>
   <property name="build.dir" value="build"/>
   <!-- Start it -->
   <target name="init" description="create build directory">
