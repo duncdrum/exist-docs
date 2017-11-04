@@ -1,4 +1,4 @@
 Fixes #
 ---
--   [ ] includes changes to documentation / readme
--   [ ] did you already increase version number according to [sem-ver](http://semver.org)?
+-   [ ] this change only affects a single page of the documentation
+-   [ ] I have checked the whole data directory, for related changes and implemented them.

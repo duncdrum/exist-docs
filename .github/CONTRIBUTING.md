@@ -1,8 +1,8 @@
 # Contributing
 
-:balloon: First off, thank you for considering contributing to exist docs. :balloon: 
+:balloon: First off, thank you for contributing to exist_docs. :balloon:
 
-All pull-requests are welcome. File a bug report, fix a typo, improve the documentation, or add a new feature. All are helpful, and make exist docs better.
+All pull-requests are welcome. File a bug report, fix a typo, improve the documentation, or add a new feature. All are helpful, and make exist_docs better.
 
 Please have a quick look at these guidelines to help both you and the developers to keep things moving smoothly.
 
