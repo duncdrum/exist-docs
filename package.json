@@ -20,5 +20,14 @@
     "type": "git",
     "url": "https://github.com/duncdrum/exist_docs",
     "license": "AGPL-3.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "ekko-lightbox": "^5.3.0",
+    "font-awesome": "^4.6.3",
+    "jquery": "^1.12.3",
+    "jquery-match-height": "^0.7.2",
+    "jquery.scrollto": "^2.1.1",
+    "prism": "^4.1.2"
   }
 }
