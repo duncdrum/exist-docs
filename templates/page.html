@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="resources/scripts/plugins/prism/prism.css"/>
   <link rel="stylesheet" href="resources/scripts/plugins/font-awesome/css/font-awesome.css"/>
   <link rel="stylesheet" href="resources/scripts/plugins/elegant_font/css/style.css"/>
-  <link rel="stylesheet" href="resources/scripts/plugins/highlight/styles/tomorrow-night.css"/>
   <!-- Theme CSS -->
   <link id="theme-style" rel="stylesheet" href="resources/styles/css/styles.css"/>
 
@@ -48,8 +47,7 @@
 
 <!--TODO add dynamic class-->
 <body>
-
-  <div class="page-wrapper">
+  <div class="page-wrapper landing-page">
 
     <!-- ******Header****** -->
     <header class="header text-center">
@@ -68,9 +66,30 @@
         <!--//tagline-->
 
         <!--  TODO remove social and add breadcrums dynamically  -->
-      <div data-template="app:head"/>
-
-        
+        <!--<div id="social" data-template="app:head"/>-->
+        <div class="social-container">
+          <div class="twitter-tweet">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-text="eXist-db open source native XML database" data-via="existdb">Tweet</a>
+            <script>
+              ! function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                  p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = p + '://platform.twitter.com/widgets.js';
+                  fjs.parentNode.insertBefore(js, fjs);
+                }
+              }(document, 'script', 'twitter-wjs');
+            </script>
+          </div>
+          <!--//tweet-->
+          <div class="hip-chat cta-container">
+            <a class="btn btn-primary btn-xs" href="https://www.hipchat.com/invite/300223/6ea0341b23fa1cf8390a23592b4b2c39">
+              <i class="fa fa-comments-o" aria-hidden="true"/> Hip Chat</a>
+          </div>
+        </div>
+        <!--//social-container-->
       </div>
       <!--//container-->
     </header>
