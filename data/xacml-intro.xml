@@ -129,7 +129,7 @@
 				is probably required. A policy has a structure that is represented by the following
 				cropped screenshot from the graphical editor. </para>
             <screenshot>
-                <graphic fileref="resources/policy-hierarchy.png"/>
+                <graphic fileref="resources/images/policy-hierarchy.png"/>
             </screenshot>
             <para> A Policy Decision Point (PDP) responds to an access request by finding the unique
 				policy that applies to that request. It is an error if more than one policy applies

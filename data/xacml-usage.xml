@@ -63,13 +63,13 @@
 					selecting Tools-&gt;Edit Policies. If XACML is not enabled, you will see the
 					following error message: </para>
                 <screenshot>
-                    <graphic fileref="resources/policy-editor_disabled.png"/>
+                    <graphic fileref="resources/images/policy-editor_disabled.png"/>
                 </screenshot>
                 <para> Once the editor is displayed, it should look like the following screenshot.
 					(The window was resized to remove excess empty space in the screenshot and will
 					be larger in practice.) </para>
                 <screenshot>
-                    <graphic fileref="resources/policy-editor_initial.png"/>
+                    <graphic fileref="resources/images/policy-editor_initial.png"/>
                 </screenshot>
             </section>
             <section>
@@ -84,7 +84,7 @@
                 </note>
                 <para> The policy hierarchy is reflected in the next screenshot. </para>
                 <screenshot>
-                    <graphic fileref="resources/policy-editor_policy.png"/>
+                    <graphic fileref="resources/images/policy-editor_policy.png"/>
                 </screenshot>
                 <para> Here, the policy with ID 'BuiltinPolicy' has been selected. The right side of
 					the split pane displays editable information about the policy. The ID should be
@@ -105,7 +105,7 @@
 					request. Each type must match the request for the whole Target to match the
 					request. </para>
                 <screenshot>
-                    <graphic fileref="resources/policy-editor_target.png"/>
+                    <graphic fileref="resources/images/policy-editor_target.png"/>
                 </screenshot>
                 <para> If the comparison for an attribute is unspecified, all requests will match
 					that attribute. To edit the comparison for an attribute, select the desired
@@ -114,7 +114,7 @@
 					data type. The first drop down list selects the comparison. The second drop down
 					list selects the value against which the attribute should be compared. </para>
                 <screenshot>
-                    <graphic fileref="resources/policy-editor_target2.png"/>
+                    <graphic fileref="resources/images/policy-editor_target2.png"/>
                 </screenshot>
                 <para> In this case, the "module-namespace" attribute allows the namespace to be
 					typed in or the XPath functions namespace may be selected from the drop down
