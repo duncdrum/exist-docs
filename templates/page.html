@@ -47,7 +47,7 @@
 </head>
 
 <!--TODO add dynamic class-->
-<body class="landing-page">
+<body>
 
   <div class="page-wrapper">
 
@@ -56,9 +56,9 @@
       <div class="container">
         <div class="branding">
           <h1 class="logo">
-                            <img src="resources/images/existdb-logo.png" alt="exist-db" style="height:1em"/>
-                            <span class="text-bold">Documentation</span>
-              </h1>
+            <img src="resources/images/existdb-logo.png" alt="exist-db" style="height:1em"/>
+            <span class="text-bold">Documentation</span>
+          </h1>
         </div>
         <!--//branding-->
 
@@ -68,29 +68,9 @@
         <!--//tagline-->
 
         <!--  TODO remove social and add breadcrums dynamically  -->
-        <div class="social-container">
-          <div class="twitter-tweet">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-text="eXist-db open source native XML database" data-via="existdb">Tweet</a>
-            <script>
-              ! function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0],
-                  p = /^http:/.test(d.location) ? 'http' : 'https';
-                if (!d.getElementById(id)) {
-                  js = d.createElement(s);
-                  js.id = id;
-                  js.src = p + '://platform.twitter.com/widgets.js';
-                  fjs.parentNode.insertBefore(js, fjs);
-                }
-              }(document, 'script', 'twitter-wjs');
-            </script>
-          </div>
-          <!--//tweet-->
-          <div class="hip-chat cta-container">
-            <a class="btn btn-primary btn-xs" href="https://www.hipchat.com/invite/300223/6ea0341b23fa1cf8390a23592b4b2c39">
-              <i class="fa fa-comments-o" aria-hidden="true"/> Hip Chat</a>
-          </div>
-        </div>
-        <!--//social-container-->
+      <div data-template="app:head"/>
+
+        
       </div>
       <!--//container-->
     </header>
