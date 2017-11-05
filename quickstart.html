@@ -39,7 +39,7 @@
       <div class="container">
         <div class="branding">
           <h1 class="logo">
-                        <img src="assets/images/existdb-logo.png" alt="exist-db" style="height:1em"/>
+                        <img src="assets/images/existdb-logo.png" alt="eXist-db" style="height:1em"/>
                         <span class="text-bold">Documentation</span>
           </h1>
         </div>
@@ -84,7 +84,7 @@
                     <!--//icon-holder-->
                   <div class="content">
                     <h4 class="callout-title">Java requirements</h4>
-                    <p>Since eXistdb 3.0 Java 8 is required.</p>
+                    <p>Since eXist-db 3.0 Java 8 is required.</p>
                   </div>
                   <!--//content-->
                 </div>
@@ -97,7 +97,7 @@
                     <!--//icon-holder-->
                     <div class="content">
                       <h4 class="callout-title">eXist-db and Java</h4>
-                      <p>eXist-db is built on Java, a free, cross-platform software development environment. Java comes in a number of versions, so it is important that you install the version that eXist-db requires: Java 8 (since eXistdb 3.0). eXist-db can run with both
+                      <p>eXist-db is built on Java, a free, cross-platform software development environment. Java comes in a number of versions, so it is important that you install the version that eXist-db requires: Java 8 (since eXist-db 3.0). eXist-db can run with both
                         the Java "JRE" (Java Runtime Environment) and the "JDK" (Java Development Kit). The JRE is adequate for running eXist-db; you do not need the JDK unless you intend to compile eXist-db from its source code. For instructions about running Java on your operating system, see Oracle's <a href="http://www.java.com/en/download/help/index_installing.xml">Installing Java</a> page.</p>
                     </div>
                     <!--//content-->
@@ -119,13 +119,13 @@
                   </div>
                   <!--//callout-block-->
 
-                  <div class="callout-block callout-warning">
+                  <div class="callout-block callout-info">
                     <div class="icon-holder">
-                      <i class="fa fa-bug"></i>
+                      <i class="fa fa-linux"></i>
                     </div>
                     <!--//icon-holder-->
                     <div class="content">
-                      <h4 class="callout-title">Linux Users:</h4>
+                      <h4 class="callout-title">eXist-db and linux</h4>
                       <p>Unfortunately, Oracle's own pages (such as the link above) focus on commercial Linux distributions. Users of other distributions are better served by distribution-specific instructions. Instructions that eXist-db users have found useful
                         include: <a href="http://livingtao.blogspot.com/2012/01/few-easy-steps-to-install-sunoracle-jdk.html">Amazon Linux</a>, <a href="http://www.webupd8.org/2012/01/install-oracle-java-jdk-7-in-ubuntu-via.html">Ubuntu</a> and <a href="http://www.webupd8.org/2012/06/how-to-install-oracle-java-7-in-debian.html">Debian</a>.</p>
                       <p>Special note: In general it recommended to use the Oracle Java VM, this is the safest choice. The OpenJDK 7 is a good open source alternative for the Oracle JVM.</p>
@@ -146,7 +146,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.60-b19, mixed mode)</code></pre>
                   </div>
                   <!--//icon-holder-->
                   <div class="content">
-                    <h4 class="callout-title">exist-db &lt; 2.2</h4>
+                    <h4 class="callout-title">eXist-db &lt; 2.2</h4>
                     <p>For pre eXist-db v2.2 versions: Due to reported compatibility issues it is NOT recommended to use "OpenJDK6" (IcedTea) and "GNU Compiler for Java" (GCJ) which are shipped by several Linux distributions.</p>
                   </div>
                   <!--//content-->
@@ -157,7 +157,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.60-b19, mixed mode)</code></pre>
                 <h2 class="section-title">Installation</h2>
                 <div id="download" class="section-block">
                   <h3 class="block-title">Downloading eXist-db</h3>
-                  <a href="https://bintray.com/existdb/releases/exist" class="btn btn-green" target="_blank"><i class="fa fa-download"></i> Download exist-db</a>
+                  <a href="https://bintray.com/eXist-db/releases/exist" class="btn btn-green" target="_blank"><i class="fa fa-download"></i> Download eXist-db</a>
                   <p>Download the installer for the latest stable release of eXist-db. The installer is a single file called
                     <code>eXist-setup-[version]-revXXXXX.jar</code>. Here, [version] and XXXXX reflect the version and revision numbers of eXist-db, and .jar is a Java Archive file. We recommend that you download the <em>latest stable
                                   release</em>.</p>
@@ -177,7 +177,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.60-b19, mixed mode)</code></pre>
                   <h3 class="block-title">Options</h3>
                   <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                      <h6>Dialog Options</h6>
+                      <!-- <h6>Dialog Options</h6> -->
                       <ol class="list">
                         <li>
                           <p>
@@ -251,9 +251,9 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.60-b19, mixed mode)</code></pre>
                 <!--//section-block-->
                 <div class="section-block">
 
-                  <div class="callout-block callout-success">
+                  <div class="callout-block callout-info">
                     <div class="icon-holder">
-                      <i class="fa fa-thumbs-up"></i>
+                      <i class="fa fa-linux"></i>
                     </div>
                     <!--//icon-holder-->
                     <div class="content">
@@ -316,12 +316,12 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.60-b19, mixed mode)</code></pre>
               <p>You should now see the following web page:</p>
               <figure><img src="resources/index1.png" width="300"></figure>
               <p>See it? Congratulations! (Not seeing it? See our article on <a href="troubleshooting.xml">Troubleshooting</a>.)</p>
-              <p>Do you notice the similarity between the page and the homepage of exist-db.org? You are actually now running a complete, local copy of the eXist-db.org website on your computer.</p>
+              <p>Do you notice the similarity between the page and the homepage of eXist-db.org? You are actually now running a complete, local copy of the eXist-db.org website on your computer.</p>
               <p>Now that you have successfully installed eXist-db, you are ready to dive in. Your local copy includes everything you need to do so: the eXist-db <a href="/exist/apps/dashboard/">Dashboard</a> app, which lets you add application packages from eXist-db.org's
                 public repository (including all of eXist-db's documentation), upload your own data to the database, and perform administrative tasks (like creating user accounts). It also includes the <a href="/exist/apps/eXide/">eXide</a> web application for
                 querying the database and creating your own applications.</p>
               <p>To learn more about the Dashboard app and installing applications from the eXist-db public application repository, see the article on the <a href="dashboard.xml">Dashboard</a>. To learn more about the eXide app, see the article on <a href="/exist/apps/eXide/docs/doc.html">eXide</a>.
-                If you would rather like to use a full-blown editor instead, you may want to have a look at the <a href="https://atom.io/packages/existdb">eXistdb</a> support package within the <a href="http://atom.io">Atom</a> editor, which is available on many
+                If you would rather like to use a full-blown editor instead, you may want to have a look at the <a href="https://atom.io/packages/eXist-db">eXist-db</a> support package within the <a href="http://atom.io">Atom</a> editor, which is available on many
                 platforms.</p>
                 </div>
                 <!--//section-block-->
@@ -376,7 +376,7 @@ bin/shutdown.bat -u admin -p youradminpassword</code></pre>
                   <!--//nav-->
                 </li>
                 <li>
-                  <a class="scrollto" href="#start-section">Starting exist-db</a>
+                  <a class="scrollto" href="#start-section">Starting eXist-db</a>
 
                     <li><a class="scrollto" href="#dive">Diving In</a></li>
 
@@ -458,7 +458,7 @@ bin/shutdown.bat -u admin -p youradminpassword</code></pre>
   <footer class="footer text-center">
     <div class="container">
       <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
-      <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a>. Refactored for <a href="https://exist-db.org">exist-db</a> by <a href="https://github.com/duncdrum">Duncan Paterson</a>.</small>
+      <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a>. Refactored for <a href="https://eXist-db.org">eXist-db</a> by <a href="https://github.com/duncdrum">Duncan Paterson</a>.</small>
 
     </div>
     <!--//container-->
