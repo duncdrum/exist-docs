@@ -7,9 +7,14 @@ import module namespace config="http://exist-db.org/apps/docs/config" at "config
 
 declare namespace xhtml="http://www.w3.org/1999/xhtml";
 
-declare function app:head($node as node(), $model as map(*)) {
-  if (. eq "index.html")
-  then (<div class="social-container">
+declare
+  %templates:wrap
+  function app:head($node as node(), $model as map(*)) as element(*){
+    let $id := data($node/ancestor::xhtml:body//xhtml:div[@role="main"]/@id)
+
+  return
+    if ($id eq "index")
+    then (<div class="social-container">
     <div class="twitter-tweet">
       <a href="https://twitter.com/share" class="twitter-share-button" data-text="eXist-db open source native XML database" data-via="existdb">Tweet</a>
       <script>
@@ -30,10 +35,10 @@ declare function app:head($node as node(), $model as map(*)) {
         <i class="fa fa-comments-o" aria-hidden="true"/> Hip Chat</a>
     </div>
   </div>)
-  else (<ol class="breadcrumb">
+    else (<ol class="breadcrumb">
       <li>
           <a href="index.html">Home</a>
       </li>
-      <li class="active">#</li>
+      <li class="active">{$id}</li>
   </ol>)
 };
