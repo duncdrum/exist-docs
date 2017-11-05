@@ -3,27 +3,50 @@
 <head>
   <title data-template="config:app-title">App Title</title>
   <!-- meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta data-template="config:app-meta" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta data-template="config:app-meta"/>  
   <!-- styles -->
-  <link rel="shortcut icon" href="$shared/resources/images/exist_icon_16x16.ico" />
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
-
+  <link rel="shortcut icon" href="$shared/resources/images/exist_icon_16x16.ico"/>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>    
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css"/>
   <!-- Plugins CSS -->
-  <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css" />
-  <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css" />
-
+  <link rel="stylesheet" href="assets/plugins/prism/prism.css"/>
+  <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css"/>
+  <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css"/>
+  <link rel="stylesheet" href="resources/scripts/plugins/highlight/styles/tomorrow-night.css"/>
   <!-- Theme CSS -->
-  <link id="theme-style" rel="stylesheet" href="assets/css/styles.css" />
+  <link id="theme-style" rel="stylesheet" href="assets/css/styles.css"/>
+  
+  <!-- Main Javascript (new)  -->
+  <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"/>
+  <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"/>
+  <script type="text/javascript" src="assets/plugins/prism/prism.js"/>  
+  <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"/>  
+  <script type="text/javascript" src="assets/js/main.js"/>  
+  <!-- Main Javascript (old)-->
+  <script type="text/javascript" src="$shared/resources/scripts/ace/ace.js"/>
+  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-javascript.js"/>
+  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-text.js"/>
+  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-xquery.js"/>
+  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-java.js"/>
+  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-css.js"/>
+  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-xml.js"/>
+  <script type="text/javascript" src="$shared/resources/scripts/ace/theme-tomorrow_night.js"/>
+  <script type="text/javascript" src="$shared/resources/scripts/highlight.js"/>        
+  <script type="text/javascript">
+            $(document).ready(function () {
+                $("code.xquery").highlight();
+            });
+        </script>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
           <![endif]-->
 </head>
-
+  
+<!--TODO add dynamic class-->
 <body class="landing-page">
 
   <div class="page-wrapper">
@@ -43,6 +66,8 @@
           <p>Open source native XML database</p>
         </div>
         <!--//tagline-->
+        
+        <!--  TODO remove social and add breadcrums dynamically  -->
         <div class="social-container">
           <div class="twitter-tweet">
             <a href="https://twitter.com/share" class="twitter-share-button" data-text="eXist-db open source native XML database" data-via="existdb">Tweet</a>
@@ -62,50 +87,32 @@
           <!--//tweet-->
           <div class="hip-chat cta-container">
             <a class="btn btn-primary btn-xs" href="https://www.hipchat.com/invite/300223/6ea0341b23fa1cf8390a23592b4b2c39">
-              <i class="fa fa-comments-o" aria-hidden="true"></i> Hip Chat</a>
+              <i class="fa fa-comments-o" aria-hidden="true"/> Hip Chat</a>
           </div>
         </div>
         <!--//social-container-->
       </div>
       <!--//container-->
     </header>
+    
+    <div class="container">
+      <div id="main" class="row"/>
+    </div>
+    
   </div>
   <!--//page-wrapper-->
 
-  <div class="container">
-      <div id="main" class="row"/>
-  </div>
 
   <footer class="footer text-center">
     <div class="container">
       <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
-      <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a>. Refactored for <a href="https://exist-db.org">exist-db</a> by <a href="https://github.com/duncdrum">Duncan Paterson</a>.</small>
+      <small class="copyright">Designed with <i class="fa fa-heart"/> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a>. Refactored for <a href="https://exist-db.org">exist-db</a> by <a href="https://github.com/duncdrum">Duncan Paterson</a>.</small>
 
     </div>
     <!--//container-->
   </footer>
   <!--//footer-->
 
-  <!-- Main Javascript (new)-->
-  <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
-  <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
-  <script type="text/javascript" src="assets/js/main.js"></script>
-  <!-- Javascript (old) -->
-  <script type="text/javascript" src="$shared/resources/scripts/ace/ace.js" />
-  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-javascript.js" />
-  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-text.js" />
-  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-xquery.js" />
-  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-java.js" />
-  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-css.js" />
-  <script type="text/javascript" src="$shared/resources/scripts/ace/mode-xml.js" />
-  <script type="text/javascript" src="$shared/resources/scripts/ace/theme-tomorrow_night.js" />
-  <script type="text/javascript" src="$shared/resources/scripts/highlight.js" />
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $(".code").highlight();
-    });
-  </script>
 </body>
 
 </html>
