@@ -11,10 +11,10 @@ import module namespace templates="http://exist-db.org/xquery/templates";
 declare namespace repo="http://exist-db.org/xquery/repo";
 declare namespace expath="http://expath.org/ns/pkg";
 
-(: 
+(:
     Determine the application root collection from the current module load path.
 :)
-declare variable $config:app-root := 
+declare variable $config:app-root :=
     let $rawPath := system:get-module-load-path()
     let $modulePath :=
         (: strip the xmldb: part :)
@@ -65,7 +65,7 @@ declare %templates:wrap function config:app-title($node as node(), $model as map
     let $doc-path := concat(replace(replace($doc-uri, '^/exist/', '/db/'), concat('^(.*)', '/','.*'), '$1'), '/data/', replace($doc-uri, concat('^.*','/'),''))
     let $doc-title := doc($doc-path)/book/bookinfo/title
     return
-        concat($config:expath-descriptor/expath:title, if ($doc-title) then ' - ' else '', $doc-title) 
+        concat($config:expath-descriptor/expath:title, if ($doc-title) then ' - ' else '', $doc-title)
 };
 
 declare function config:app-meta($node as node(), $model as map(*)) as element()* {

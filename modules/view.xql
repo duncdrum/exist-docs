@@ -5,7 +5,7 @@ import module namespace templates="http://exist-db.org/xquery/templates";
 (: The following modules provide functions which will be called by the templating :)
 import module namespace dq="http://exist-db.org/xquery/documentation/search" at "search.xql";
 import module namespace docbook="http://docbook.org/ns/docbook" at "docbook.xql";
-import module namespace app="http://exist-db.org/apps/docs/modules" at "app.xql";
+import module namespace app="http://exist-db.org/apps/docs/templates" at "app.xql";
 import module namespace config="http://exist-db.org/xquery/apps/config" at "config.xqm";
 import module namespace review="http://exist-db.org/xquery/documentation/review" at "review.xql";
 import module namespace site="http://exist-db.org/apps/site-utils";
