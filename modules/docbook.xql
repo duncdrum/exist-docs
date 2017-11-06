@@ -6,13 +6,13 @@ import module namespace config="http://exist-db.org/xquery/apps/config" at "conf
 import module namespace templates="http://exist-db.org/xquery/templates" at "templates.xql";
 import module namespace dq="http://exist-db.org/xquery/documentation/search" at "search.xql";
 
-declare variable $docbook:INLINE := 
+declare variable $docbook:INLINE :=
     ("filename", "classname", "methodname", "option", "command", "parameter", "guimenu", "guimenuitem", "guibutton", "function", "envar");
 (:~
  : Load a docbook document. If a query was specified, re-run the query on the document
  : to get matches highlighted.
  :)
-declare 
+declare
     %public %templates:default("field", "all")
 function docbook:load($node as node(), $model as map(*), $q as xs:string?, $doc as xs:string?, $field as xs:string) {
     let $path := $config:data-root || "/" || $doc
@@ -42,22 +42,21 @@ declare %public function docbook:to-html($node as node(), $model as map(*)) {
  :)
 declare %public function docbook:toc($node as node(), $model as map(*)) {
     <div>
-        <h3>Contents</h3>
-        {
-        docbook:print-sections($model("doc")/*/(chapter|section))
-        }
+      {docbook:print-sections($model("doc")/*/(chapter|section))}
     </div>
 };
 
+
+
 declare %private function docbook:print-sections($sections as element()*) {
     if ($sections) then
-        <ul class="toc">
+      <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
         {
             for $section in $sections
             let $id := if ($section/@id) then $section/@id else concat("D", $section/@exist:id)
             return
                 <li>
-                    <a href="#{$id}">{ $section/title/text() }</a>
+                    <a class="scrollto" href="#{$id}">{ $section/title/text() }</a>
                     { docbook:print-sections($section/(chapter|section)) }
                 </li>
         }
@@ -224,7 +223,7 @@ declare %private function docbook:to-html($nodes as node()*) {
             case element(row) return
                 <tr>{docbook:process-children($node)}</tr>
             case element(entry) return
-                if ($node/ancestor::thead) then 
+                if ($node/ancestor::thead) then
                     <th>{docbook:process-children($node)}</th>
                 else
                     <td>{docbook:process-children($node)}</td>
@@ -300,7 +299,7 @@ declare %private function docbook:table($node as node()) {
 };
 
 declare %private function docbook:code($elem as element()) {
-    let $lang := 
+    let $lang :=
         if ($elem//markup) then
             "xml"
         else if ($elem/@language) then
