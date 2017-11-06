@@ -57,6 +57,7 @@ Temporary Items
 
 ~$*.xlsx
 .~lock*
+*.xpr
 
 # =========================
 # exist-db specific files
