@@ -5,10 +5,17 @@ module namespace app="http://exist-db.org/apps/docs/templates";
 import module namespace templates="http://exist-db.org/xquery/templates";
 import module namespace config="http://exist-db.org/xquery/apps/config" at "config.xqm";
 
-
 declare
   %templates:wrap
-  function app:head($node as node(), $model as map(*)) as element(header){
+function app:body($node as node(), $model as map(*)) {
+(: not doing anything right now went with JS instead :)
+    switch($node/ancestor::html//div[@role="main"]/@id)
+      case 'index' return attribute class {'landing-page'}
+    default return attribute class {'body-green'}
+
+};
+
+declare function app:head($node as node(), $model as map(*)) as element(header){
 
     <header class="header text-center">
         <div class="container">
@@ -21,10 +28,9 @@ declare
           <div class="tagline">
             <p>Open source native XML database</p>
           </div>
-
           {
           let $id := data($node/ancestor::body//div[@role="main"]/@id)
-
+          (: set title via id + role above docHeader :)
           return
             if ($id eq "index")
             then (<div class="social-container">
@@ -47,14 +53,14 @@ declare
               <a class="btn btn-primary btn-xs" href="https://www.hipchat.com/invite/300223/6ea0341b23fa1cf8390a23592b4b2c39">
                 <i class="fa fa-comments-o" aria-hidden="true"/> Hip Chat</a>
             </div>
-          </div>
-
-        )
+          </div>)
             else (<ol class="breadcrumb">
               <li>
                   <a href="index.html">Home</a>
               </li>
-              <li class="active">{$id}</li>
+              <li class="active">
+                <a href="#">{$id}</a>
+              </li>
           </ol>)
         }
         </div>
@@ -62,9 +68,7 @@ declare
 
 };
 
-declare
-  %templates:wrap
-  function app:foot($node as node(), $model as map(*)) as element(footer){
+declare function app:foot($node as node(), $model as map(*)) as element(footer){
   <footer class="footer text-center">
     <div class="container">
       <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->

@@ -1,6 +1,6 @@
 <div class="page-wrapper" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="main">
-  <div class="doc-wrapper body-green">
-    <div class="container">
+  <div class="doc-wrapper">
+    <div class="container" role="main" id="Start">
       <div id="doc-header" class="doc-header text-center">
         <h1 class="doc-title">
           <i class="icon fa fa-paper-plane"/> Quick Start</h1>
@@ -661,7 +661,11 @@ echo $y;
     <!--//container-->
   </div>
   <!--//doc-wrapper-->
+  <script type="text/javascript">
+  var b = document.querySelector("body");
 
+  b.setAttribute("class", "body-green");
+  </script>
   <div id="promo-block" class="promo-block">
     <div class="container">
       <div class="promo-block-inner">

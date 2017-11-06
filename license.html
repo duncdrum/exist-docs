@@ -1,6 +1,6 @@
 <div class="page-wrapper" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="main">
-      <div class="doc-wrapper body-orange">
-        <div class="container">
+      <div class="doc-wrapper">
+        <div class="container" role="main" id="Legal">
           <div id="doc-header" class="doc-header text-center">
             <h1 class="doc-title">
               <span aria-hidden="true" class="icon icon_balance"/> Legal</h1>
@@ -119,6 +119,11 @@
         <!--//container-->
       </div>
       <!--//doc-wrapper-->
+      <script type="text/javascript">
+      var b = document.querySelector("body");
+
+      b.setAttribute("class", "body-orange");
+      </script>
 
       <div id="promo-block" class="promo-block promo-block-2">
         <div class="container">

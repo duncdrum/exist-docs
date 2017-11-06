@@ -1,12 +1,12 @@
 <div data-template="templates:surround" data-template-with="templates/page.html" data-template-at="main">
-<section class="cards-section text-center">
-  <div class="container">
+  <section class="cards-section text-center">
+  <div class="container" role="main" id="index">
     <h2 class="title">Let's get started</h2>
     <div class="intro">
       <p>A new landing page say something friendly.</p>
       <div class="cta-container">
         <a class="btn btn-primary btn-cta" href="https://github.com/eXist-db/documentation/releases" target="_blank">
-                    <i class="fa fa-cloud-download"/> Download Now</a>
+          <i class="fa fa-cloud-download"/> Download Documentation</a>
       </div>
       <!--//cta-container-->
     </div>
@@ -21,8 +21,8 @@
           <h3 class="title">Quick Start</h3>
           <p class="intro">Simple tutorials for the impatient</p>
           <a class="link" href="start.html">
-                        <span/>
-                    </a>
+            <span/>
+          </a>
         </div>
         <!--//item-inner-->
       </div>
@@ -51,8 +51,8 @@
           <h3 class="title">General</h3>
           <p class="intro">General documentation of exist-db's features</p>
           <a class="link" href="components.html">
-                        <span/>
-                    </a>
+            <span/>
+          </a>
         </div>
         <!--//item-inner-->
       </div>
@@ -66,8 +66,8 @@
           <h3 class="title">Administration</h3>
           <p class="intro">Admin tasks on this instance</p>
           <a class="link" href="charts.html">
-                        <span/>
-                    </a>
+            <span/>
+          </a>
         </div>
         <!--//item-inner-->
       </div>
@@ -81,8 +81,8 @@
           <h3 class="title">Development</h3>
           <p class="intro">How to contribute to the development of exist-db</p>
           <a class="link" href="faqs.html">
-                        <span/>
-                    </a>
+            <span/>
+          </a>
         </div>
         <!--//item-inner-->
       </div>
@@ -96,8 +96,8 @@
           <h3 class="title">Demos</h3>
           <p class="intro">Interactive demos &amp; showcases</p>
           <a class="link" href="showcase.html">
-                        <span/>
-                    </a>
+            <span/>
+          </a>
         </div>
         <!--//item-inner-->
       </div>
@@ -111,17 +111,22 @@
           <h3 class="title">Legal</h3>
           <p class="intro">License &amp; credits page.</p>
           <a class="link" href="license.html">
-                        <span/>
-                    </a>
+            <span/>
+          </a>
         </div>
         <!--//item-inner-->
       </div>
       <!--//item-->
     </div>
     <!--//cards-->
-
   </div>
   <!--//container-->
 </section>
 <!--//cards-section-->
-</div><!--// template div-->
+<script type="text/javascript">
+var b = document.querySelector("body");
+
+b.setAttribute("class", "landing-page");
+</script>
+</div>
+<!--// template div-->
