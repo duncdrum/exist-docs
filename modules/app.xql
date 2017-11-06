@@ -12,7 +12,6 @@ function app:body($node as node(), $model as map(*)) {
     switch($node/ancestor::html//div[@role="main"]/@id)
       case 'index' return attribute class {'landing-page'}
     default return attribute class {'body-green'}
-
 };
 
 declare function app:head($node as node(), $model as map(*)) as element(header){
@@ -110,41 +109,48 @@ function app:ticket($node as node(), $model as map(*)) as element(div){
 declare
   %templates:wrap
 function app:further-reading($node as node(), $model as map(*)) as element(div){
-  <div class="content-holder col-md-7 col-sm-6 col-xs-12">
-    <div class="content-holder-inner">
-      <div class="desc">
-        <h4 class="content-title">Further Reading</h4>
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
+<div class="content-holder col-md-7 col-sm-6 col-xs-12">
+  <div class="content-holder-inner">
+    <div class="desc">
+      <h4 class="content-title">Further Reading</h4>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
               <tr>
-                <th>Source</th>
-                <th>Link</th>
+                  <th>Source</th>
+                  <th>Link</th>
               </tr>
-            </thead>
-            <tbody>
+          </thead>
+          <tbody>
               <tr>
-                <td>
-                  <p class="text-primary">XQuery Specs:</p>
-                </td>
-                <td>Some page</td>
-              </tr>
-              <tr>
-                <td>
-                  <p class="text-primary">The book:</p>
-                </td>
-                <td>Some chapter</td>
+                  <td>
+                      <p class="text-primary">XQuery Specs:</p>
+                  </td>
+                  <td>Some page</td>
               </tr>
               <tr>
-                <td>
-                  <p class="text-primary">Wikibooks:</p>
-                </td>
-                <td>another link</td>
+                  <td>
+                      <p class="text-primary">The book:</p>
+                  </td>
+                  <td>Some chapter</td>
               </tr>
-            </tbody>
-          </table>
-        </div>
+              <tr>
+                  <td>
+                      <p class="text-primary">Wikibooks:</p>
+                  </td>
+                  <td>another link</td>
+              </tr>
+          </tbody>
+      </table>
       </div>
     </div>
+  </div>
 </div>
+};
+
+declare function app:fa-icons($node as node(), $model as map(*)) as element(i){
+  switch($node)
+    case 'Getting Started with Web Application Development'
+      return <i class="icon fa fa-paper-plane"/>
+    default return <i class="icon icon_puzzle_alt"/>
 };

@@ -40,7 +40,7 @@ declare %public function docbook:to-html($node as node(), $model as map(*)) {
 (:~
  : Generate a table of contents.
  :)
-declare %public function docbook:toc($node as node(), $model as map(*)) {
+declare %public function docbook:toc($node as node(), $model as map(*)) as element(ul){
     <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
       {docbook:print-sections($model("doc")/*/(chapter|section))}
     </ul>
@@ -66,7 +66,7 @@ declare %private function docbook:to-html($nodes as node()*) {
             case text() return
                 $node
             case element(book) return
-                <article>
+                <article class="doc-wrapper">
                     {docbook:process-children($node/chapter)}
                 </article>
             case element(article) return
@@ -74,9 +74,9 @@ declare %private function docbook:to-html($nodes as node()*) {
                     {docbook:process-children($node/section)}
                 </article>
             case element(chapter) return
-                <section>
+                <div class="doc-body">
                 {docbook:process-children($node)}
-                </section>
+              </div>
             case element(col) return
                 <col width="{$node/@width}">{docbook:process-children($node)}</col>
             case element(colgroup) return
@@ -85,7 +85,7 @@ declare %private function docbook:to-html($nodes as node()*) {
                 if ($node/@role = "media-object") then
                     docbook:media($node)
                 else
-                    <section>
+                    <section id="{$node/title[1]/text()}" class="doc-section">
                         <a name="D{$node/@exist:id}"></a>
                         {docbook:process-children($node)}
                     </section>
@@ -96,15 +96,18 @@ declare %private function docbook:to-html($nodes as node()*) {
                 return
                     element { "h" || $level } {
                         if ($level = 1) then
-                            attribute class { "front-title" }
+                            attribute class { "doc-title" }
                         else
-                            (),
+                            (attribute class{ 'section-title' }),
                         if ($node/../@id) then
                             <a name="{$node/../@id}"></a>
                         else
                             <a name="D{$node/../@exist:id}"></a>,
                         docbook:process-children($node)
                     }
+            case element (date) return
+              <div class="meta">
+                <i class="fa fa-clock-o"/> Last updated: {docbook:process-children($node)} </div>
             case element(para) return
                 <p>{docbook:process-children($node)}</p>
             case element(emphasis) return
