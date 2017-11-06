@@ -41,28 +41,22 @@ declare %public function docbook:to-html($node as node(), $model as map(*)) {
  : Generate a table of contents.
  :)
 declare %public function docbook:toc($node as node(), $model as map(*)) {
-    <div>
+    <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
       {docbook:print-sections($model("doc")/*/(chapter|section))}
-    </div>
+    </ul>
 };
 
 
 
 declare %private function docbook:print-sections($sections as element()*) {
-    if ($sections) then
-      <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
-        {
-            for $section in $sections
-            let $id := if ($section/@id) then $section/@id else concat("D", $section/@exist:id)
-            return
-                <li>
-                    <a class="scrollto" href="#{$id}">{ $section/title/text() }</a>
-                    { docbook:print-sections($section/(chapter|section)) }
-                </li>
-        }
-        </ul>
-    else
-        ()
+    for $section in $sections
+    let $id := if ($section/@id) then $section/@id else concat("D", $section/@exist:id)
+
+    return
+        <li>
+          <a class="scrollto" href="#{$id}">{ $section/title/text() }</a>
+            { docbook:print-sections($section/(chapter|section)) }
+        </li>
 };
 
 declare %private function docbook:to-html($nodes as node()*) {
