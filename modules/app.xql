@@ -22,7 +22,7 @@ declare function app:head($node as node(), $model as map(*)) as element(header){
           <div class="branding">
             <h1 class="logo">
               <img src="resources/images/existdb-logo.png" alt="exist-db" style="height:1em"/>
-              <span class="text-bold">Documentation</span>
+              <span class="text-bold"> Documentation</span>
             </h1>
           </div>
           <div class="tagline">
