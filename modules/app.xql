@@ -18,12 +18,10 @@ declare
               <span class="text-bold">Documentation</span>
             </h1>
           </div>
-          (: //branding :)
-
           <div class="tagline">
             <p>Open source native XML database</p>
           </div>
-          (: //tagline :)
+
           {
           let $id := data($node/ancestor::body//div[@role="main"]/@id)
 
@@ -50,7 +48,7 @@ declare
                 <i class="fa fa-comments-o" aria-hidden="true"/> Hip Chat</a>
             </div>
           </div>
-          (: //social-container :)
+
         )
             else (<ol class="breadcrumb">
               <li>
@@ -60,7 +58,89 @@ declare
           </ol>)
         }
         </div>
-        (: //container :)
       </header>
 
+};
+
+declare
+  %templates:wrap
+  function app:foot($node as node(), $model as map(*)) as element(footer){
+  <footer class="footer text-center">
+    <div class="container">
+      <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+      <small class="copyright">Designed with <i class="fa fa-heart"/> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a>. Refactored for <a href="https://exist-db.org">exist-db</a> by <a href="https://github.com/duncdrum">Duncan Paterson</a>.</small>
+    </div>
+  </footer>
+};
+
+declare
+  %templates:wrap
+  function app:promo($node as node(), $model as map(*)) as element(div){
+    <div id="promo-block" class="promo-block">
+      <div class="container">
+        <div class="promo-block-inner">
+          <div class="row">
+            <div data-template="app:ticket"/>
+            <div data-template="app:further-reading"/>
+            </div>
+          </div>
+        </div>
+      </div>
+  };
+
+declare
+  %templates:wrap
+function app:ticket($node as node(), $model as map(*)) as element(div){
+  <div class="content-holder col-md-5 col-sm-6 col-xs-12">
+    <div class="content-holder-inner">
+      <h4 class="content-title">
+        <strong>Found a problem with this page?</strong>
+      </h4>
+      <p>Please submit an issue so we can improve it.</p>
+      <a href="https://github.com/duncdrum/exist-docs/issues/new?title=error%20on%20quickstart" class="btn btn-red btn-cta">
+        <i class="fa fa-exclamation-circle"/> Submit Issues</a>
+    </div>
+  </div>
+  };
+
+declare
+  %templates:wrap
+function app:further-reading($node as node(), $model as map(*)) as element(div){
+  <div class="content-holder col-md-7 col-sm-6 col-xs-12">
+    <div class="content-holder-inner">
+      <div class="desc">
+        <h4 class="content-title">Further Reading</h4>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p class="text-primary">XQuery Specs:</p>
+                </td>
+                <td>Some page</td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="text-primary">The book:</p>
+                </td>
+                <td>Some chapter</td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="text-primary">Wikibooks:</p>
+                </td>
+                <td>another link</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
 };

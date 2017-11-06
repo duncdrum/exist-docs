@@ -48,51 +48,7 @@
 <!--TODO add dynamic class-->
 <body>
   <div class="page-wrapper landing-page">
-
-    <!-- ******Header****** -->
-    <header class="header text-center">
-      <div class="container">
-        <div class="branding">
-          <h1 class="logo">
-            <img src="resources/images/existdb-logo.png" alt="exist-db" style="height:1em"/>
-            <span class="text-bold">Documentation</span>
-          </h1>
-        </div>
-        <!--//branding-->
-
-        <div class="tagline">
-          <p>Open source native XML database</p>
-        </div>
-        <!--//tagline-->
-
-        <!--  TODO remove social and add breadcrumbs dynamically  -->
-        <!--<div id="social" data-template="app:head"/>-->
-        <div class="social-container">
-          <div class="twitter-tweet">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-text="eXist-db open source native XML database" data-via="existdb">Tweet</a>
-            <script>
-              ! function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0],
-                  p = /^http:/.test(d.location) ? 'http' : 'https';
-                if (!d.getElementById(id)) {
-                  js = d.createElement(s);
-                  js.id = id;
-                  js.src = p + '://platform.twitter.com/widgets.js';
-                  fjs.parentNode.insertBefore(js, fjs);
-                }
-              }(document, 'script', 'twitter-wjs');
-            </script>
-          </div>
-          <!--//tweet-->
-          <div class="hip-chat cta-container">
-            <a class="btn btn-primary btn-xs" href="https://www.hipchat.com/invite/300223/6ea0341b23fa1cf8390a23592b4b2c39">
-              <i class="fa fa-comments-o" aria-hidden="true"/> Hip Chat</a>
-          </div>
-        </div>
-        <!--//social-container-->
-      </div>
-      <!--//container-->
-    </header>
+    <header data-template="app:head"/>
 
     <div class="container">
       <div id="main" class="row"/>
@@ -101,16 +57,8 @@
   </div>
   <!--//page-wrapper-->
 
-
-  <footer class="footer text-center">
-    <div class="container">
-      <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
-      <small class="copyright">Designed with <i class="fa fa-heart"/> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a>. Refactored for <a href="https://exist-db.org">exist-db</a> by <a href="https://github.com/duncdrum">Duncan Paterson</a>.</small>
-
-    </div>
-    <!--//container-->
-  </footer>
-  <!--//footer-->
+  <footer data-template="app:foot"/>
+  
 
 </body>
 
