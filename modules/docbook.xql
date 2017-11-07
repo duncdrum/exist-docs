@@ -47,10 +47,12 @@ declare %public function docbook:toc($node as node(), $model as map(*)) as eleme
 };
 
 
-
 declare %private function docbook:print-sections($sections as element()*) {
     for $section in $sections
-    let $id := if ($section/@id) then $section/@id else concat("D", $section/@exist:id)
+    let $id := if ($section/@id) 
+        then lower-case(replace($section/@id, '\s', '-')) 
+        else concat("D", lower-case(replace($section/@exist:id, '\s', '-')))
+    let $title := lower-case(replace($section/title/text(), '\s', '-'))
 
     return
         <li>
@@ -91,7 +93,9 @@ declare %private function docbook:to-html($nodes as node()*) {
                     {docbook:to-html($node/chapter)}
                         <div class="doc-sidebar hidden-xs">
                              <nav id="doc-nav">
-                                 <div data-template="docbook:toc"/>
+                                <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                    {docbook:print-sections($node)}
+                                 </ul>
                              </nav>
                          </div>
                          <!-- //doc-sidebar -->
@@ -104,14 +108,16 @@ declare %private function docbook:to-html($nodes as node()*) {
                 </article>:)
             case element(chapter) return
                 <div class="content-inner">
-                {docbook:process-children($node/section)}
+                {docbook:process-children($node)}
               </div>
               (:<!-- //content-inner -->:)
             case element(section) return
+                let $id := lower-case(replace($node/@id, '\s', '-')) 
+                return
                 if ($node/@role = "media-object") then
                     docbook:media($node)
                 else
-                    <section id="{$node/title[1]/text()}" class="doc-section">
+                    <section id="{$id}" class="doc-section">
                         {docbook:process-children($node)}
                     </section>
             case element(abstract) return

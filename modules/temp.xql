@@ -49,10 +49,12 @@ declare %public function local:toc($node as node(), $model as map(*)) as element
 };
 
 
-
 declare %private function local:print-sections($sections as element()*) {
     for $section in $sections
-    let $id := if ($section/@id) then $section/@id else concat("D", $section/@exist:id)
+    let $id := if ($section/@id) 
+        then lower-case(replace($section/@id, '\s', '-')) 
+        else concat("D", lower-case(replace($section/@exist:id, '\s', '-')))
+    let $title := lower-case(replace($section/title/text(), '\s', '-'))
 
     return
         <li>
@@ -76,7 +78,7 @@ declare %private function local:to-html($nodes as node()*) {
         typeswitch ($node)
             case text() return
                 $node
-        (:   Needs an updated to select the right fa-fa-symbol, also the date ain't accurate should be fixed in docbook:)
+        (:   Needs an updated to select the right fa-fa-symbol, also the date ain't accurate should be fixed in local:)
             case element(book) return  
                 let $meta := $node/bookinfo
                 let $id := lower-case(replace($meta/title/text(), '\s', '-'))
@@ -93,7 +95,9 @@ declare %private function local:to-html($nodes as node()*) {
                     {local:to-html($node/chapter)}
                         <div class="doc-sidebar hidden-xs">
                              <nav id="doc-nav">
-                                 <div data-template="docbook:toc"/>
+                                <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                    {local:print-sections($node)}
+                                 </ul>
                              </nav>
                          </div>
                          <!-- //doc-sidebar -->
@@ -106,14 +110,16 @@ declare %private function local:to-html($nodes as node()*) {
                 </article>:)
             case element(chapter) return
                 <div class="content-inner">
-                {local:process-children($node/section)}
+                {local:process-children($node)}
               </div>
               (:<!-- //content-inner -->:)
             case element(section) return
+                let $id := lower-case(replace($node/@id, '\s', '-')) 
+                return
                 if ($node/@role = "media-object") then
                     local:media($node)
                 else
-                    <section id="{$node/title[1]/text()}" class="doc-section">
+                    <section id="{$id}" class="doc-section">
                         {local:process-children($node)}
                     </section>
             case element(abstract) return
@@ -395,3 +401,4 @@ declare %private function local:print-authors($root as element()) {
     </div>
 };
 
+local:to-html($local:test)
