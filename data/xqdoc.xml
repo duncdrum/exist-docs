@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!-- $Id$ -->
 <book>
     <bookinfo>
@@ -36,9 +35,9 @@
         </section>
         <section>
             <title>Comment Style</title>
-            <para> xqDoc style comments begin with a &#160;'(:~'&#160; and end with a &#160;':)'&#160;. Of course,
-                &#160;'(::'&#160; would have been preferable to indicate the beginning of an xqDoc style
-                comment (since it mimics the JavaDoc style of &#160;'/**'&#160;) but we didn't want to cause
+            <para> xqDoc style comments begin with a  '(:~'  and end with a  ':)' . Of course,
+                 '(::'  would have been preferable to indicate the beginning of an xqDoc style
+                comment (since it mimics the JavaDoc style of  '/**' ) but we didn't want to cause
                 confusion with an XQuery pragma (since this decision was made, the definition for
                 XQuery pragma has been changed). The choice for the begin pattern is really quite
                 arbitrary. In any case, one xqDoc style comment can
@@ -118,7 +117,7 @@
                     the library or main module. To link to a specific function (or variable) defined
                     in an xqDoc library or main module, simply provide the URI for the library or
                     main module followed by a ';' and finally the function or variable name. To
-                    provide a&#160;<emphasis role="italic">name</emphasis>&#160;for a link, simply include a
+                    provide a <emphasis role="italic">name</emphasis> for a link, simply include a
                     second ';' followed by the name. To provide text, simply include the 'text'.
                     Multiple @see tags can be specified (one per link or string of text).</para>
                 <programlisting language="xquery"><![CDATA[(:~

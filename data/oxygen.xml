@@ -9,7 +9,8 @@
         <title>Using oXygen</title>
         <section id="overview">
             <title>Overview</title>
-            <para><ulink url="http://oxygenxml.com/">oXygen XML Editor</ulink> is a powerful tool
+            <para>
+                <ulink url="http://oxygenxml.com/">oXygen XML Editor</ulink> is a powerful tool
                 for working with eXist-db. Its eXist-db-specific capabilities include:<itemizedlist>
                     <listitem>
                         <para>browsing eXist-db database contents</para>
@@ -26,8 +27,7 @@
                         <para>executing queries and displaying results</para>
                     </listitem>
                 </itemizedlist> This article describes how to configure oXygen to work with
-                eXist-db. While the oXygen documentation describes <ulink
-                    url="http://oxygenxml.com/xml_editor/eXist_support.html">oXygen's eXist-db
+                eXist-db. While the oXygen documentation describes <ulink url="http://oxygenxml.com/xml_editor/eXist_support.html">oXygen's eXist-db
                     support</ulink>, we provide up-to-date information here for the convenience of
                 eXist-db users.</para>
         </section>
@@ -43,7 +43,7 @@
                 instance.</para>
             <procedure>
                 <step>
-                    <para>In oXygen, go to Preferences > Data Sources, and you will see a window
+                    <para>In oXygen, go to Preferences &gt; Data Sources, and you will see a window
                         with two areas: Data Sources (on the top) and Connections (on the bottom).
                     </para>
                 </step>
@@ -132,18 +132,19 @@
                     <listitem>
                         <para>Use the Data Source Explorer, an oXygen pane that lists your
                             Connections including the one you created above. To open the Data Source
-                            Explorer, select Window > Show view > Data Source Explorer. Using this,
+                            Explorer, select Window &gt; Show view &gt; Data Source Explorer. Using this,
                             you can browse collections and their contents; you can right click on
                             these items display contextual menus with options to create, rename, or
                             move database contents.</para>
                     </listitem>
                     <listitem>
-                        <para>Use the File > Open URL to browse and pick documents or files database
+                        <para>Use the File &gt; Open URL to browse and pick documents or files database
                             to open. The first time you connect to your database, you will need to
                             fill in several fields: your eXist-db account credentials and Server URL
                             (e.g., http://localhost:8080/exist/webdav/db/)</para>
                     </listitem>
-                </itemizedlist></para>
+                </itemizedlist>
+            </para>
         </section>
         <section id="validating-queries">
             <title>How to validate XQuery files against eXist-db's XQuery engine</title>
@@ -155,7 +156,7 @@
                 complete this configuration are very easy:</para>
             <procedure>
                 <step>
-                    <para>In oXygen, go to Preferences > XQuery. On the dropdown menu labeled,
+                    <para>In oXygen, go to Preferences &gt; XQuery. On the dropdown menu labeled,
                         "XQuery Validate with", select the name of the Data Connection that you
                         created above.</para>
                     <para>Select OK to confirm your new preference.</para>

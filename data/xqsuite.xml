@@ -87,7 +87,7 @@ function m:factorial($n as xs:int) as xs:int {
             sequence of values passed. There have to be as many %test:arg annotations for every test
             run as the function takes parameters.</para>
             <para>The result returned by the function call is passed to each assertion in turn, which
-            may either pass or fail.&#160;In the example above, we assert that the function should return
+            may either pass or fail. In the example above, we assert that the function should return
             1 if the input parameter is 1, and 120 if the input is 5.</para>
             <para>To test a function which takes a sequence with more than one item for a parameter,
             just append additional values to <code>%test:arg</code>. The test runner will convert
@@ -163,9 +163,9 @@ function fd:simple-date($date as xs:date) as xs:string {
                         <para>Tests if the return value equals the specified argument. If the
                             function returns more than one item, each item is compared to the given
                             annotation values in turn. The number of returned items has to
-                            correspond to the number of annotation values.&#160; If the function returns
+                            correspond to the number of annotation values.  If the function returns
                             an atomic type, the assertion argument is cast into the same type and
-                            the two are compared using the eq operator.&#160; If the sequence returned by
+                            the two are compared using the eq operator.  If the sequence returned by
                             the function contains one or more XML elements, they will be normalized
                             (i.e. ignorable whitespace is stripped). The assertion argument is then
                             parsed into XML and the two node trees are compared using the
@@ -181,7 +181,7 @@ function fd:simple-date($date as xs:date) as xs:string {
                         <para>The annotation value is executed as an XPath expression. The assert
                             passes if the XPath expression returns a non-empty sequence or a single
                             atomic item whose effective boolean value is true. Within the XPath
-                            expression, the variable&#160;<emphasis role="bold">$result</emphasis>contains a reference to the result sequence returned
+                            expression, the variable <emphasis role="bold">$result</emphasis>contains a reference to the result sequence returned
                             by the tested function.</para>
                     </listitem>
                 </varlistentry>

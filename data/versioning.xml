@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- $Id$ -->
 <book>
     <bookinfo>
@@ -81,18 +82,18 @@
                     for the "create", "update", "delete", "copy" and "move" events:</para>
                 <example>
                     <title>Registering trigger in collection.xconf</title>
-                    <programlisting language="xml"><![CDATA[<collection xmlns="http://exist-db.org/collection-config/1.0">
-    <index>
-        <fulltext default="none" attributes="no">
-        </fulltext>
-    </index>
-    <triggers>
-        <trigger event="create,delete,update"
-            class="org.exist.versioning.VersioningTrigger">
-            <parameter name="overwrite" value="yes"/>
-        </trigger>
-    </triggers>
-</collection>]]></programlisting>
+                    <programlisting language="xml">&lt;collection xmlns="http://exist-db.org/collection-config/1.0"&gt;
+    &lt;index&gt;
+        &lt;fulltext default="none" attributes="no"&gt;
+        &lt;/fulltext&gt;
+    &lt;/index&gt;
+    &lt;triggers&gt;
+        &lt;trigger event="create,delete,update"
+            class="org.exist.versioning.VersioningTrigger"&gt;
+            &lt;parameter name="overwrite" value="yes"/&gt;
+        &lt;/trigger&gt;
+    &lt;/triggers&gt;
+&lt;/collection&gt;</programlisting>
                 </example>
                 <para>If you store above document into <filename>/db/system/config/db/collection.xconf</filename>,
                 it will enable versioning for the entire database.</para>
@@ -133,11 +134,11 @@
                     <classname>org.exist.versioning.VersioningFilter</classname>:</para>
                 <example>
                     <title>Registering the versioning filter in conf.xml</title>
-                    <programlisting language="xml"><![CDATA[<serializer add-exist-id="none" compress-output="no" enable-xinclude="yes"
+                    <programlisting language="xml">&lt;serializer add-exist-id="none" compress-output="no" enable-xinclude="yes"
             enable-xsl="no" indent="yes" match-tagging-attributes="no" 
-            match-tagging-elements="no">
-    <custom-filter class="org.exist.versioning.VersioningFilter"/>
-</serializer>]]></programlisting>
+            match-tagging-elements="no"&gt;
+    &lt;custom-filter class="org.exist.versioning.VersioningFilter"/&gt;
+&lt;/serializer&gt;</programlisting>
                 </example>
                 <para>eXist needs to be restarted for the versioning filter to become active.</para>
             </section>
@@ -185,28 +186,28 @@
             <para>Like the admin webapp, you can use XQuery functions to access the revision history
                 or restore a given revision. eXist provides a single XQuery module for that. For
                 example, to view the history of a resource, use the following query:</para>
-            <programlisting language="xquery"><![CDATA[import module namespace v="http://exist-db.org/versioning";
-v:history(doc("/db/shakespeare/plays/hamlet.xml"))]]></programlisting>
+            <programlisting language="xquery">import module namespace v="http://exist-db.org/versioning";
+v:history(doc("/db/shakespeare/plays/hamlet.xml"))</programlisting>
             <para>This should return an XML fragment like the following:</para>
-            <programlisting language="xml"><![CDATA[<v:history>
-    <v:document>/db/shakespeare/plays/hamlet.xml</v:document>
-    <v:revisions>
-        <v:revision rev="35">
-            <v:date>2009-08-22T22:19:33.777+02:00</v:date>
-            <v:user>admin</v:user>
-        </v:revision>
-        <v:revision rev="36">
-            <v:date>2009-08-22T22:38:41.629+02:00</v:date>
-            <v:user>admin</v:user>
-        </v:revision>
-    </v:revisions>
-</v:history>]]></programlisting>
+            <programlisting language="xml">&lt;v:history&gt;
+    &lt;v:document&gt;/db/shakespeare/plays/hamlet.xml&lt;/v:document&gt;
+    &lt;v:revisions&gt;
+        &lt;v:revision rev="35"&gt;
+            &lt;v:date&gt;2009-08-22T22:19:33.777+02:00&lt;/v:date&gt;
+            &lt;v:user&gt;admin&lt;/v:user&gt;
+        &lt;/v:revision&gt;
+        &lt;v:revision rev="36"&gt;
+            &lt;v:date&gt;2009-08-22T22:38:41.629+02:00&lt;/v:date&gt;
+            &lt;v:user&gt;admin&lt;/v:user&gt;
+        &lt;/v:revision&gt;
+    &lt;/v:revisions&gt;
+&lt;/v:history&gt;</programlisting>
             <para>The most important function is <function>v:doc</function>, which is used
             to restore an arbitrary revision of a document on the fly. You can use this
             function similar to the standard <function>fn:doc</function> to query the revision.
             For example:</para>
-            <programlisting language="xquery"><![CDATA[import module namespace v="http://exist-db.org/versioning";
-v:doc(doc("/db/shakespeare/plays/hamlet.xml"), 35)//SPEECH[SPEAKER="HAMLET"]]]></programlisting>
+            <programlisting language="xquery">import module namespace v="http://exist-db.org/versioning";
+v:doc(doc("/db/shakespeare/plays/hamlet.xml"), 35)//SPEECH[SPEAKER="HAMLET"]</programlisting>
             <para>This will restore revision 35 of <filename>hamlet.xml</filename> and then find
                 all <sgmltag>SPEECH</sgmltag> elements with a <sgmltag>SPEAKER</sgmltag> called 
                 "HAMLET". Please note that no indexes will be available to the query engine when
@@ -221,8 +222,8 @@ v:doc(doc("/db/shakespeare/plays/hamlet.xml"), 35)//SPEECH[SPEAKER="HAMLET"]]]><
                 The inserted metadata attributes are all in a separate versioning namespace
                 and will never be stored in the db. The following fragment shows the added
                 attributes:</para>
-            <programlisting language="xml"><![CDATA[<PLAY xmlns:v="http://exist-db.org/versioning" v:revision="36" v:key="12343e4940b24" 
-v:path="/db/shakespeare/plays/hamlet.xml">...</PLAY>]]></programlisting>
+            <programlisting language="xml">&lt;PLAY xmlns:v="http://exist-db.org/versioning" v:revision="36" v:key="12343e4940b24" 
+v:path="/db/shakespeare/plays/hamlet.xml"&gt;...&lt;/PLAY&gt;</programlisting>
             <para>As described above ("Setup"), when eXist detects a potential write conflict,
                 it cannot do more than to reject the update and raise an error. However, there's
                 an XQuery function which can be used by clients to check if newer revisions exist.
@@ -231,8 +232,8 @@ v:path="/db/shakespeare/plays/hamlet.xml">...</PLAY>]]></programlisting>
                 no newer revisions exist in the database. Otherwise, the function returns the
                 version documents of each newer revision.
             </para>
-            <programlisting language="xquery"><![CDATA[import module namespace v="http://exist-db.org/versioning";
-v:find-newer-revision(doc("/db/shakespeare/plays/hamlet.xml"), 36, "12343e4940b24")]]></programlisting>
+            <programlisting language="xquery">import module namespace v="http://exist-db.org/versioning";
+v:find-newer-revision(doc("/db/shakespeare/plays/hamlet.xml"), 36, "12343e4940b24")</programlisting>
             <para>Once you made sure that you really want to store the document and overwrite the
                 other revisions, simply remove the version attributes from the root element.</para>
             <para>Future releases of the versioning extension may provide a more advanced

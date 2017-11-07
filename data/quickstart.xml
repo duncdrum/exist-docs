@@ -35,15 +35,16 @@
                     you intend to compile eXist-db from its source code. For instructions about
                     running Java on your operating system, see Oracle's <ulink url="http://www.java.com/en/download/help/index_installing.xml">Installing
                         Java</ulink> page.</para>
-                <para><emph>Warning:</emph> If you have installed Saxon as a JRE extension (via the extensions folder), this can cause a critical error during installation. To avoid this error user need to either
+                <para>
+                    <emphasis>Warning:</emphasis> If you have installed Saxon as a JRE extension (via the extensions folder), this can cause a critical error during installation. To avoid this error user need to either
                     remove the JRE extension, or install a second JRE which you use just for eXist-db and set the JAVA_HOME to that when running eXist-db.</para>
                 <para>Linux users: Unfortunately, Oracle's own pages (such as the link above) focus
                     on commercial Linux distributions. Users of other distributions are better
                     served by distribution-specific instructions. Instructions that eXist-db users
-                    have found useful include: <ulink url="http://livingtao.blogspot.com/2012/01/few-easy-steps-to-install-sunoracle-jdk.html">Amazon Linux</ulink>, <ulink url="http://www.webupd8.org/2012/01/install-oracle-java-jdk-7-in-ubuntu-via.html">Ubuntu</ulink> and <ulink url="http://www.webupd8.org/2012/06/how-to-install-oracle-java-7-in-debian.html">Debian</ulink>.</para>
+                    have found useful include: <ulink url="http://livingtao.blogspot.com/2012/01/few-easy-steps-to-install-sunoracle-jdk.html">Amazon Linux</ulink>, <ulink url="http://www.webupd8.org/2012/01/install-oracle-java-jdk-7-in-ubuntu-via.html">Ubuntu</ulink> and <ulink url="http://www.webupd8.org/2012/06/how-to-install-oracle-java-7-in-debian.html">Debian</ulink>.</para>                
                 <para>Special note: In general it recommended to use the Oracle Java VM, this is the safest choice. The OpenJDK 7 is a good open source alternative for the Oracle JVM.</para>
                 <para>Details of the Java VM can be obtained via the following command (two results displayed):
-                    <synopsis format="java">java -version
+                    <synopsis format="linespecific">java -version
 java version ""1.8.0_60-ea""
 Java(TM) SE Runtime Environment (build 1.8.0_60-ea-b19)
 Java HotSpot(TM) 64-Bit Server VM (build 25.60-b19, mixed mode)
@@ -106,7 +107,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.60-b19, mixed mode)
                         a good way to protect your data and prevent others from abusing the
                         account. Best to choose a unique password.</para>
                     <para>macOS users installing via disk image can change the default (empty) password via the <guimenuitem>Open dashboard</guimenuitem> option from the menubar icon once installation has finished.
-                        <emphasis>special note:</emphasis> during the intial run of eXist-db its Dock icon may remain active even after eXist-db has been shut down. Simply right-click on the eXist-db Dock icon and select <guimenuitem>Quit</guimenuitem>. On subsequent runs the dock icon should behave as expected.
+                        <emphasis>special note:</emphasis> during the intial run of eXist-db its Dock icon may remain active even after eXist-db has been shut down. Simply right-click on the eXist-db Dock icon and select <guimenuitem>Quit</guimenuitem>. On subsequent runs the dock icon should behave as expected. 
                     </para>
                     <para>
                         <emphasis>Memory Settings</emphasis>: Configure the maximum amount of
@@ -192,7 +193,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.60-b19, mixed mode)
                 <step>
                     <para>Just calling <filename>start.jar</filename> will start eXist-db via the desktop launcher:</para>
                     <synopsis>java -jar start.jar</synopsis>
-                    <para>If you want to launch eXist-db without a GUI, use the shell scripts in <filename>bin/</filename>.
+                    <para>If you want to launch eXist-db without a GUI, use the shell scripts in <filename>bin/</filename>. 
                         On Linux or Mac, enter the following:</para>
                     <synopsis format="linespecific">bin/startup.sh</synopsis>
                     <para>If you are a Windows user, enter the following:</para>

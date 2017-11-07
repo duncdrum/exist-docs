@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!-- $Id$ -->
 <book>
     <bookinfo>
@@ -54,7 +53,8 @@
                 </orderedlist>                
             </para>
             <para>Furthermore, the SOAP APi, SOAP server, and XACML Security features were removed.</para>
-            <para>The versioning extension is now available as a separate <ulink url="https://github.com/eXist-db/xquery-versioning-module">EXPATH package</ulink></para>
+            <para>The versioning extension is now available as a separate <ulink url="https://github.com/eXist-db/xquery-versioning-module">EXPATH package</ulink>
+            </para>
             <para>XQueryService has been moved from <code>DBBroker</code> to <code>BrokerPool</code>.</para>
             <para>EXPath packages that incorporate Java libraries may no longer work with eXist-db v3.0 and may need to be recompiled for our API changes; packages should now explicitly specify the eXist-db versions that they are compatible with.</para>
             <para>eXist-db v3.0 is the culmination of almost 1,500 changes. For more information on new features head to the <ulink url="http://exist-db.org/exist/apps/wiki/blogs/eXist//eXist-db-v3">blog</ulink>.</para>
