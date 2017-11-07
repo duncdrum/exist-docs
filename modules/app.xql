@@ -24,9 +24,11 @@ declare function app:head($node as node(), $model as map(*)) as element(header){
               <span class="text-bold"> Documentation</span>
             </h1>
           </div>
+          <!-- //banding -->
           <div class="tagline">
             <p>Open source native XML database</p>
           </div>
+          <!-- //tag-line -->
           {
           let $id := data($node/ancestor::body//div[@role="main"]/@id)
           (: set title via id + role above docHeader :)
@@ -48,10 +50,12 @@ declare function app:head($node as node(), $model as map(*)) as element(header){
                 }(document, 'script', 'twitter-wjs');]]>
               </script>
             </div>
+            <!-- //twitter-tweet -->
             <div class="hip-chat cta-container">
               <a class="btn btn-primary btn-xs" href="https://www.hipchat.com/invite/300223/6ea0341b23fa1cf8390a23592b4b2c39">
                 <i class="fa fa-comments-o" aria-hidden="true"/> Hip Chat</a>
             </div>
+            <!-- //hip-chat -->
           </div>)
             else (<ol class="breadcrumb">
               <li>
@@ -63,6 +67,7 @@ declare function app:head($node as node(), $model as map(*)) as element(header){
           </ol>)
         }
         </div>
+        <!-- //container -->
       </header>
 
 };
@@ -73,7 +78,9 @@ declare function app:foot($node as node(), $model as map(*)) as element(footer){
       <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
       <small class="copyright">Designed with <i class="fa fa-heart"/> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a>. Refactored for <a href="https://exist-db.org">exist-db</a> by <a href="https://github.com/duncdrum">Duncan Paterson</a>.</small>
     </div>
+    <!-- //container -->
   </footer>
+(:  <!-- //footer -->  :)
 };
 
 declare
@@ -86,9 +93,13 @@ declare
             <div data-template="app:ticket"/>
             <div data-template="app:further-reading"/>
             </div>
+            <!-- //row -->
           </div>
+          <!-- //promo-inner -->
         </div>
+        <!-- //container -->
       </div>
+    (:  <!-- //promo-block -->    :)
   };
 
 declare
@@ -103,7 +114,9 @@ function app:ticket($node as node(), $model as map(*)) as element(div){
       <a href="https://github.com/duncdrum/exist-docs/issues/new?title=error%20on%20quickstart" class="btn btn-red btn-cta">
         <i class="fa fa-exclamation-circle"/> Submit Issues</a>
     </div>
+    <!-- //content-inner -->
   </div>
+  (:<!-- //content-holder -->:)
   };
 
 declare
@@ -141,11 +154,15 @@ function app:further-reading($node as node(), $model as map(*)) as element(div){
                   <td>another link</td>
               </tr>
           </tbody>
-      </table>
+        </table>
       </div>
+<!-- //table-responsive -->
     </div>
+   <!-- //desc -->
   </div>
+ <!-- //content-inner --> 
 </div>
+(:<!-- //content-holder --> :)
 };
 
 declare function app:fa-icons($node as node(), $model as map(*)) as element(i){
