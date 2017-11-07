@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<meta 
-  
-  
-  
-  xmlns="http://exist-db.org/xquery/repo">
+<meta xmlns="http://exist-db.org/xquery/repo">
   <description>new documentation prototype</description>
   <author>Duncan Paterson</author>
   <website>https://github.com/duncdrum</website>
