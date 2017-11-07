@@ -131,8 +131,8 @@ declare %private function docbook:to-html($nodes as node()*) {
                 let $level := count($node/(ancestor::chapter|ancestor::section))
                 return
                     switch($level)
-                        case '1' return element { "h1" } { attribute class{ 'section-title' }, docbook:process-children($node)}
-                        case '2' return element { "h2" } { attribute class{ 'section-title' }, docbook:process-children($node)}
+                        case 1 return docbook:process-children($node)
+                        case 2 return element { "h2" } { attribute class{ 'section-title' }, docbook:process-children($node)}
                     default return element { "h" || $level } { attribute class{ 'block-title' }, docbook:process-children($node)}
             case element(para) return
                 <p>{docbook:process-children($node)}</p>
