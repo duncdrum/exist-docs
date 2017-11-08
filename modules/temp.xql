@@ -48,13 +48,29 @@ declare %public function local:toc($node as node(), $model as map(*)) as element
     </ul>
 };
 
+declare %public function local:sidebar($chapter as element()) as element(ul){
+       
+        <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+          {for $section in $chapter//section
+          return
+            <li>
+              <a class="scrollto" 
+                href="#{
+                    if ($section/@id) 
+                    then lower-case(replace($section/@id, '\s', '-')) 
+                    else concat("D", lower-case(replace($section/@exist:id, '\s', '-')))}">
+                 { $section/title/text() }</a>
+            </li>  
+            }
+        </ul>
+};
 
 declare %private function local:print-sections($sections as element()*) {
     for $section in $sections
     let $id := if ($section/@id) 
         then lower-case(replace($section/@id, '\s', '-')) 
         else concat("D", lower-case(replace($section/@exist:id, '\s', '-')))
-    let $title := lower-case(replace($section/title/text(), '\s', '-'))
+    
 
     return
         <li>
@@ -93,14 +109,7 @@ declare %private function local:to-html($nodes as node()*) {
                     <!-- //doc-header -->
                     <div class="doc-body">
                     {local:to-html($node/chapter)}
-                        <div class="doc-sidebar hidden-xs">
-                             <nav id="doc-nav">
-                                <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
-                                    {local:print-sections($node)}
-                                 </ul>
-                             </nav>
-                         </div>
-                         <!-- //doc-sidebar -->
+
                     </div>
                     <!-- //doc-body -->
                 </div>                             
@@ -109,10 +118,14 @@ declare %private function local:to-html($nodes as node()*) {
                     {local:process-children($node/section)}
                 </article>:)
             case element(chapter) return
-                <div class="content-inner">
-                {local:process-children($node)}
+                 (<div class="content-inner">
+                {local:process-children($node)}                
+                </div>
+              (:<!-- //content-inner -->:), 
+              <div class="doc-sidebar hidden-xs">
+                {local:sidebar($node)}            
               </div>
-              (:<!-- //content-inner -->:)
+            (:<!-- //doc-sidebar -->:))
             case element(section) return
                 let $id := lower-case(replace($node/@id, '\s', '-')) 
                 return

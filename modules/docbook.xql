@@ -61,7 +61,26 @@ declare %private function docbook:print-sections($sections as element()*) {
         </li>
 };
 
+
+declare %public function docbook:sidebar($chapter as element()) as element(ul){
+       
+        <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+          {for $section in $chapter//section
+          return
+            <li>
+              <a class="scrollto" 
+                href="#{
+                    if ($section/@id) 
+                    then lower-case(replace($section/@id, '\s', '-')) 
+                    else concat("D", lower-case(replace($section/@exist:id, '\s', '-')))}">
+                 { $section/title/text() }</a>
+            </li>  
+            }
+        </ul>
+};
+
 declare %private function docbook:doc-header($node as element()*) as element(div) {
+(:Placeholder will determine the icon later:)
 <div id="doc-header" class="doc-header text-center">
     <h1 class="doc-title">
         <i class="icon fa fa-paper-plane"></i> Quick Start</h1>
@@ -90,14 +109,13 @@ declare %private function docbook:to-html($nodes as node()*) {
                     </div>
                     <!-- //doc-header -->
                     <div class="doc-body">
-                    {docbook:to-html($node/chapter)}
+                        <div class="doc-content">    
+                            {docbook:to-html($node/chapter)}  
+                        </div>
+                        <!-- //doc-content -->
                         <div class="doc-sidebar hidden-xs">
-                             <nav id="doc-nav">
-                                <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
-                                    {docbook:print-sections($node)}
-                                 </ul>
-                             </nav>
-                         </div>
+                            {docbook:sidebar($node)}
+                          </div>
                          <!-- //doc-sidebar -->
                     </div>
                     <!-- //doc-body -->
@@ -108,8 +126,8 @@ declare %private function docbook:to-html($nodes as node()*) {
                 </article>:)
             case element(chapter) return
                 <div class="content-inner">
-                {docbook:process-children($node)}
-              </div>
+                {docbook:process-children($node)}                
+                </div>
               (:<!-- //content-inner -->:)
             case element(section) return
                 let $id := lower-case(replace($node/@id, '\s', '-')) 
