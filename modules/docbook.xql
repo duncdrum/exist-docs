@@ -47,10 +47,12 @@ declare %public function docbook:toc($node as node(), $model as map(*)) as eleme
 };
 
 
-
 declare %private function docbook:print-sections($sections as element()*) {
     for $section in $sections
-    let $id := if ($section/@id) then $section/@id else concat("D", $section/@exist:id)
+    let $id := if ($section/@id) 
+        then lower-case(replace($section/@id, '\s', '-')) 
+        else concat("D", lower-case(replace($section/@exist:id, '\s', '-')))
+    let $title := lower-case(replace($section/title/text(), '\s', '-'))
 
     return
         <li>
@@ -59,68 +61,147 @@ declare %private function docbook:print-sections($sections as element()*) {
         </li>
 };
 
+
+declare %public function docbook:sidebar($chapter as element()) as element(ul){
+(:   missintg <ul class="nav doc-sub-menu"> for level1+ :)
+        <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+          {for $section in $chapter//section
+          return
+            <li>
+              <a class="scrollto" 
+                href="#{
+                    if ($section/@id) 
+                    then lower-case(replace($section/@id, '\s', '-')) 
+                    else concat("D", lower-case(replace($section/@exist:id, '\s', '-')))}">
+                 { $section/title/text() }</a>
+            </li>  
+            }
+        </ul>
+};
+
+declare %private function docbook:doc-header($node as element()*) as element(div) {
+(:Placeholder will determine the icon later see also app.xql :)
+<div id="doc-header" class="doc-header text-center">
+    <h1 class="doc-title">
+        <i class="icon fa fa-paper-plane"></i> Quick Start</h1>
+    <div class="meta">
+        <i class="fa fa-clock-o"></i> Last updated: Jan 25th, 2016</div>        
+</div>
+};
+
 declare %private function docbook:to-html($nodes as node()*) {
     for $node in $nodes
     return
         typeswitch ($node)
             case text() return
                 $node
-            case element(book) return
-                <article class="doc-wrapper">
-                    {docbook:process-children($node/chapter)}
-                </article>
-            case element(article) return
+        (:   Needs an updated to select the right fa-fa-symbol, also the date ain't accurate should be fixed in docbook:)
+            case element(book) return  
+                let $meta := $node/bookinfo
+                let $id := $meta/title/text()
+                return
+                <div class="container" role="main" id="{$id}">
+                    <div id="doc-header" class="doc-header text-center">
+                        <h1 class="doc-title">
+                            <i class="icon fa fa-paper-plane"></i> {' ' || $meta/title}</h1>
+                        <div class="meta">
+                            <i class="fa fa-clock-o"></i>{' Last updated: ' || $meta/date}</div>        
+                    </div>
+                    <!-- //doc-header -->
+                    <div class="doc-body">
+                        <div class="doc-content">    
+                            {docbook:to-html($node/chapter)}  
+                        </div>
+                        <!-- //doc-content -->
+                        <div class="doc-sidebar hidden-xs">
+                            {docbook:sidebar($node)}
+                          </div>
+                         <!-- //doc-sidebar -->
+                    </div>
+                    <!-- //doc-body -->
+                </div>                             
+(:            case element(article) return
                 <article>
                     {docbook:process-children($node/section)}
-                </article>
+                </article>:)
             case element(chapter) return
-                <div class="doc-body">
-                {docbook:process-children($node)}
-              </div>
-            case element(col) return
-                <col width="{$node/@width}">{docbook:process-children($node)}</col>
-            case element(colgroup) return
-                <colgroup>{docbook:process-children($node)}</colgroup>
+                <div class="content-inner">
+                {docbook:process-children($node)}                
+                </div>
+              (:<!-- //content-inner -->:)
             case element(section) return
+                let $id := lower-case(replace($node/@id, '\s', '-')) 
+                return
                 if ($node/@role = "media-object") then
                     docbook:media($node)
                 else
-                    <section id="{$node/title[1]/text()}" class="doc-section">
-                        <a name="D{$node/@exist:id}"></a>
+                    <section id="{$id}" class="doc-section">
                         {docbook:process-children($node)}
                     </section>
             case element(abstract) return
                 <blockquote>{docbook:process-children($node)}</blockquote>
+            case element(col) return
+                <col width="{$node/@width}">{docbook:process-children($node)}</col>
+            case element(colgroup) return
+                <colgroup>{docbook:process-children($node)}</colgroup>    
+                
             case element(title) return
                 let $level := count($node/(ancestor::chapter|ancestor::section))
                 return
-                    element { "h" || $level } {
-                        if ($level = 1) then
-                            attribute class { "doc-title" }
-                        else
-                            (attribute class{ 'section-title' }),
-                        if ($node/../@id) then
-                            <a name="{$node/../@id}"></a>
-                        else
-                            <a name="D{$node/../@exist:id}"></a>,
-                        docbook:process-children($node)
-                    }
-            case element (date) return
-              <div class="meta">
-                <i class="fa fa-clock-o"/> Last updated: {docbook:process-children($node)} </div>
+                    switch($level)
+                        case 1 return docbook:process-children($node)
+                        case 2 return element { "h2" } { attribute class{ 'section-title' }, docbook:process-children($node)}
+                    default return element { "h" || $level } { attribute class{ 'block-title' }, docbook:process-children($node)}
             case element(para) return
                 <p>{docbook:process-children($node)}</p>
             case element(emphasis) return
                 <em>{docbook:process-children($node)}</em>
             case element(itemizedlist) return
-                <ul>{docbook:to-html($node/listitem)}</ul>
+                <ul class="list">{docbook:to-html($node/listitem)}</ul>
             case element(orderedlist) return
-                <ol>{docbook:to-html($node/listitem)}</ol>
+                <ol class="list">{docbook:to-html($node/listitem)}</ol>
             case element(listitem) return
                 if ($node/parent::varlistentry) then
                     docbook:process-children($node)
                 else
                     <li>{docbook:process-children($node)}</li>
+            (: Call out :)
+            case element(note) return
+                <div class="callout-block callout-info">
+                  <div class="icon-holder">
+                    <i class="fa fa-info-circle"></i>
+                  </div>
+                  <!--//icon-holder-->
+                  <div class="content">
+                  {
+                    if ($node/title) then
+                        <h4 class="callout-title">{ docbook:to-html($node/title/node()) }</h4>
+                    else
+                        ()
+                }
+                    { docbook:to-html($node/* except $node/title) }
+                  </div>
+                  <!--//content-->
+                </div>                
+               
+            case element(important) return
+                <div class="callout-block callout-danger">
+                  <div class="icon-holder">
+                    <i class="fa fa-exclamation-triangle"></i>
+                  </div>
+                  <!--//icon-holder-->
+                  <div class="content">
+                  {
+                    if ($node/title) then
+                        <h4 class="callout-title">{ docbook:to-html($node/title/node()) }</h4>
+                    else
+                        ()
+                }
+                    { docbook:to-html($node/* except $node/title) }
+                  </div>
+                  <!--//content-->
+                </div>     
+            
             case element(variablelist) return
                 let $spacing := $node/@spacing
                 return
@@ -128,7 +209,8 @@ declare %private function docbook:to-html($nodes as node()*) {
             case element(varlistentry) return (
                 <dt>{docbook:process-children($node/term)}</dt>,
                 <dd>{docbook:to-html($node/listitem)}</dd>
-            )
+                )
+            (: media :)
             case element(figure) return
                 if ($node/@role = "media-object") then
                     docbook:media($node)
@@ -161,7 +243,14 @@ declare %private function docbook:to-html($nodes as node()*) {
                 let $align := $node/@align
                 let $class := if ($align) then "img-float-" || $align else ""
                 return
-                    <iframe width="{$node/@width}" height="{$node/@depth}" src="{$node/@fileref}" frameborder="0" allowfullscreen="yes"/>
+                     <div class="col-md-6 col-sm-6 col-xs-12">
+                        <h6 class="media-heading">{$node/title/text()}</h6>
+                        <!-- 16:9 aspect ratio -->
+                        <div class="embed-responsive embed-responsive-16by9">
+                          <iframe class="embed-responsive-item" src="{$node/graphic/@fileref}" frameborder="0" allowfullscreen="true"></iframe>
+                        </div>
+                      </div>
+            
             case element(ulink) return
                 if ($node/@condition = '_blank')
                 then
@@ -170,28 +259,15 @@ declare %private function docbook:to-html($nodes as node()*) {
                     <a href="{$node/@url}">{docbook:process-children($node)}</a>
             case element(xref) return
                 <a href="#{$node/@linkend}">{root($node)/*//*[@id = $node/@linkend]/title/text()}</a>
-            case element(note) return
-                <div class="alert alert-success">
-                {
-                    if ($node/title) then
-                        <h2>Note: { docbook:to-html($node/title/node()) }</h2>
-                    else
-                        ()
-                }
-                { docbook:to-html($node/* except $node/title) }
-                </div>
-            case element(important) return
-                <div class="alert alert-error">
-                    <h2>Important</h2>
-                    { docbook:process-children($node) }
-                </div>
+                
+            (: Code :)
             case element(synopsis) return
                 docbook:code($node)
             case element(programlisting) return
                 docbook:code($node)
             case element(procedure) return
                 <div class="procedure">
-                    <ol>
+                    <ol class="list">
                     {docbook:process-children($node)}
                     </ol>
                 </div>
@@ -207,8 +283,9 @@ declare %private function docbook:to-html($nodes as node()*) {
                 <li>{docbook:process-children($node)}</li>
             case element(tocentry) return
                 docbook:process-children($node)
+            (: Table :)
             case element(informaltable) return
-                <table border="0" cellpadding="0" cellspacing="0">{$node/node()}</table>
+                <table class="table table-striped">{$node/node()}</table>
             case element(table) return
                 docbook:table($node)
             case element(tgroup) return
@@ -268,12 +345,14 @@ declare %private function docbook:figure($node as node()) {
 };
 
 declare %private function docbook:media($node as element()) {
+   
+    
     <div class="media well">
         <a class="pull-left" href="#">
             <img class="media-object" src="{$node/graphic/@fileref}"/>
         </a>
         <div class="media-body">
-            <h4 class="media-heading">{$node/title/text()}</h4>
+            <h6 class="media-heading">{$node/title/text()}</h6>
             {
                 for $child in $node/* except $node/title except $node/graphic
                 return
@@ -296,6 +375,8 @@ declare %private function docbook:table($node as node()) {
 };
 
 declare %private function docbook:code($elem as element()) {
+(: language tagging in sources can to be improved :)
+
     let $lang :=
         if ($elem//markup) then
             "xml"
@@ -304,12 +385,17 @@ declare %private function docbook:code($elem as element()) {
         else
             ()
     return
-        if ($lang) then
-            <div class="code" data-language="{$lang}">
-            { replace($elem/string(), "^\s+", "") }
-            </div>
-        else
-            <pre>{ replace($elem/string(), "^\s+", "") }</pre>
+    if (lower-case($lang) eq 'xquery')
+    then (<div class="code-block">
+            <pre>
+                <code data-language="xquery">{ replace($elem/string(), "^\s+", "") }</code>
+            </pre>              
+        </div>)
+    else (<div class="code-block">
+            <pre>
+                <code class="{$lang}">{ replace($elem/string(), "^\s+", "") }</code>
+            </pre>
+        </div>)
 };
 
 declare %private function docbook:process-children($elem as element()+) {

@@ -30,9 +30,9 @@
                     <filename>/db/system/security/config.xml</filename>
                 </title>
                 <programlisting language="xml">
-        <markup><![CDATA[<security-manager xmlns="http://exist-db.org/Configuration" last-account-id="11" last-group-id="10" version="2.0">
-    <Authentication-Entry-Point>/authentication/login</Authentication-Entry-Point>
-</security-manager>]]></markup>
+        <markup>&lt;security-manager xmlns="http://exist-db.org/Configuration" last-account-id="11" last-group-id="10" version="2.0"&gt;
+    &lt;Authentication-Entry-Point&gt;/authentication/login&lt;/Authentication-Entry-Point&gt;
+&lt;/security-manager&gt;</markup>
                 </programlisting>
             </example>
             <para>The Security Manager also features an authentication event listener that you can
@@ -44,12 +44,13 @@
                 <title>Excerpt of a sample <filename>/db/system/security/config.xml</filename>
                     illustrating configuration of the authentication event listener</title>
                 <programlisting language="xml">
-        <markup><![CDATA[<security-manager ... version="2.0">
+        <markup>&lt;security-manager ... version="2.0"&gt;
     ...
-    <events script-uri="/db/security-events.xq"/>
+    &lt;events script-uri="/db/security-events.xq"/&gt;
     ...
-</security-manager>]]></markup>
-            </programlisting></example>
+&lt;/security-manager&gt;</markup>
+            </programlisting>
+            </example>
             <para>The XQuery module that receives the authentication events must be a library module
                 in the <uri>http://exist-db.org/security/events</uri> namespace and must have a
                 function called <command>authentication()</command>. This example sends a log
@@ -58,14 +59,15 @@
                 <title>A sample module handler for authentication events, <filename>/db/security-events.xq</filename>
                 </title>
                 <programlisting language="xquery">
-        <markup><![CDATA[xquery version "3.0";
+        <markup>xquery version "3.0";
  
 module namespace sec-ev="http://exist-db.org/security/events";
  
 declare function sec-ev:authentication() {
     util:log-system-out(concat("An authentication event has occurred for ", xmldb:get-current-user())))
-};]]></markup>
-            </programlisting></example>
+};</markup>
+            </programlisting>
+            </example>
         </section>
         <section id="authentication-realms">
             <title>Authentication Realms</title>
@@ -96,14 +98,14 @@ declare function sec-ev:authentication() {
                     <title>Account Document stored in <filename>/db/system/security/exist/accounts/aretter.xml</filename>
                     </title>
                     <programlisting>
-                        <markup><![CDATA[<account xmlns="http://exist-db.org/Configuration" id="11">
-    <name>aretter</name>
-    <password>{RIPEMD160}Vi7e971INiGmyWGT1bm63bHj1gf=</password>
-    <group name="dba"/>
-    <enabled>true</enabled>
-    <expired>false</expired>
-    <metadata/>
-</account>]]></markup>
+                        <markup>&lt;account xmlns="http://exist-db.org/Configuration" id="11"&gt;
+    &lt;name&gt;aretter&lt;/name&gt;
+    &lt;password&gt;{RIPEMD160}Vi7e971INiGmyWGT1bm63bHj1gf=&lt;/password&gt;
+    &lt;group name="dba"/&gt;
+    &lt;enabled&gt;true&lt;/enabled&gt;
+    &lt;expired&gt;false&lt;/expired&gt;
+    &lt;metadata/&gt;
+&lt;/account&gt;</markup>
                     </programlisting>
                 </example>
                 <para>As this example suggests, eXist-db does not store passwords in the clear, but
@@ -132,43 +134,43 @@ declare function sec-ev:authentication() {
                     <title>Sample <filename>/db/system/security/config.xml</filename> for
                         LDAP</title>
                     <programlisting>
-                        <markup><![CDATA[<realm id="LDAP" version="1.0" principals-are-case-insensitive="true">
-    <context>
-        <authentication>simple</authentication>
-        <url>ldap://ad.server.url.here:389</url>
-        <domain>domain.here</domain>
-        <search>
-            <base>ou=group,dc=ad,dc=organiation-or-what-ever,dc=domain</base>
-            <default-username>account@domain.here</default-username>
-            <default-password>XXXXXXX</default-password>
-            <account>
-                <search-filter-prefix>objectClass=user</search-filter-prefix>
-                <search-attribute key="objectSid">objectSid</search-attribute>
-                <search-attribute key="primaryGroupID">primaryGroupID</search-attribute>
-                <search-attribute key="name">sAMAccountName</search-attribute>
-                <search-attribute key="dn">distinguishedName</search-attribute>
-                <search-attribute key="memberOf">memberOf</search-attribute>
-                <metadata-search-attribute key="http://axschema.org/namePerson/first">givenName</metadata-search-attribute>
-                <metadata-search-attribute key="http://axschema.org/contact/email">mail</metadata-search-attribute>
-                <metadata-search-attribute key="http://axschema.org/namePerson/last">sn</metadata-search-attribute>
-                <metadata-search-attribute key="http://axschema.org/namePerson">name</metadata-search-attribute>
-            </account>
-            <group>
-                <search-filter-prefix>objectClass=group</search-filter-prefix>
-                <search-attribute key="member">member</search-attribute>
-                <search-attribute key="primaryGroupToken">primaryGroupToken</search-attribute>
-                <search-attribute key="objectSid">objectSid</search-attribute>
-                <search-attribute key="name">sAMAccountName</search-attribute>
-                <search-attribute key="dn">distinguishedName</search-attribute>
-                <whitelist>
-                    <principal>Domain Users</principal>
-                    <principal>Users_GROUP</principal>
-                </whitelist>
-            </group>
-        </search>
-        <transformation><add-group>group.users</add-group></transformation>
-    </context>
-</realm>]]></markup>
+                        <markup>&lt;realm id="LDAP" version="1.0" principals-are-case-insensitive="true"&gt;
+    &lt;context&gt;
+        &lt;authentication&gt;simple&lt;/authentication&gt;
+        &lt;url&gt;ldap://ad.server.url.here:389&lt;/url&gt;
+        &lt;domain&gt;domain.here&lt;/domain&gt;
+        &lt;search&gt;
+            &lt;base&gt;ou=group,dc=ad,dc=organiation-or-what-ever,dc=domain&lt;/base&gt;
+            &lt;default-username&gt;account@domain.here&lt;/default-username&gt;
+            &lt;default-password&gt;XXXXXXX&lt;/default-password&gt;
+            &lt;account&gt;
+                &lt;search-filter-prefix&gt;objectClass=user&lt;/search-filter-prefix&gt;
+                &lt;search-attribute key="objectSid"&gt;objectSid&lt;/search-attribute&gt;
+                &lt;search-attribute key="primaryGroupID"&gt;primaryGroupID&lt;/search-attribute&gt;
+                &lt;search-attribute key="name"&gt;sAMAccountName&lt;/search-attribute&gt;
+                &lt;search-attribute key="dn"&gt;distinguishedName&lt;/search-attribute&gt;
+                &lt;search-attribute key="memberOf"&gt;memberOf&lt;/search-attribute&gt;
+                &lt;metadata-search-attribute key="http://axschema.org/namePerson/first"&gt;givenName&lt;/metadata-search-attribute&gt;
+                &lt;metadata-search-attribute key="http://axschema.org/contact/email"&gt;mail&lt;/metadata-search-attribute&gt;
+                &lt;metadata-search-attribute key="http://axschema.org/namePerson/last"&gt;sn&lt;/metadata-search-attribute&gt;
+                &lt;metadata-search-attribute key="http://axschema.org/namePerson"&gt;name&lt;/metadata-search-attribute&gt;
+            &lt;/account&gt;
+            &lt;group&gt;
+                &lt;search-filter-prefix&gt;objectClass=group&lt;/search-filter-prefix&gt;
+                &lt;search-attribute key="member"&gt;member&lt;/search-attribute&gt;
+                &lt;search-attribute key="primaryGroupToken"&gt;primaryGroupToken&lt;/search-attribute&gt;
+                &lt;search-attribute key="objectSid"&gt;objectSid&lt;/search-attribute&gt;
+                &lt;search-attribute key="name"&gt;sAMAccountName&lt;/search-attribute&gt;
+                &lt;search-attribute key="dn"&gt;distinguishedName&lt;/search-attribute&gt;
+                &lt;whitelist&gt;
+                    &lt;principal&gt;Domain Users&lt;/principal&gt;
+                    &lt;principal&gt;Users_GROUP&lt;/principal&gt;
+                &lt;/whitelist&gt;
+            &lt;/group&gt;
+        &lt;/search&gt;
+        &lt;transformation&gt;&lt;add-group&gt;group.users&lt;/add-group&gt;&lt;/transformation&gt;
+    &lt;/context&gt;
+&lt;/realm&gt;</markup>
                     </programlisting>
                 </example>
                 <para>Explanation of these elements:</para>
@@ -216,9 +218,9 @@ declare function sec-ev:authentication() {
                     <title>Sample <filename>/db/system/security/config.xml</filename> for
                         OAuth</title>
                     <programlisting>
-                        <markup><![CDATA[<realm id="OAuth" version="1.0">
-    <service name="nnn" key="kkk" secret="sss" provider="facebook"/>
-</realm>]]></markup>
+                        <markup>&lt;realm id="OAuth" version="1.0"&gt;
+    &lt;service name="nnn" key="kkk" secret="sss" provider="facebook"/&gt;
+&lt;/realm&gt;</markup>
                     </programlisting>
                 </example>
                 <para>Explanation of these elements:</para>
@@ -249,9 +251,9 @@ declare function sec-ev:authentication() {
                 </para>
                 <example>
                     <title>extensions/local.build.properties</title>
-                    <programlisting><![CDATA[#Security OpenID extensions for eXist
+                    <programlisting>#Security OpenID extensions for eXist
 include.feature.security.openid = true
-]]></programlisting>
+</programlisting>
                 </example>
                 <para>
 			        This extension compiles into <emphasis role="bold">
@@ -282,24 +284,24 @@ include.feature.security.openid = true
                     <title>
                         <filename>users.xml</filename> User Information</title>
                     <programlisting>
-                        <markup><![CDATA[<auth>
-    <groups last-id="3">
-        <group name="dba" id="1"/>
-        <group name="guest" id="2"/>
-        <group name="mygroup" id="3"/>
-    </groups>
-    <users last-id="3">
-        <user name="admin" uid="1" home="">
-            <group>dba</group>
-        </user>
-        <user name="guest" uid="2" password="e55d929cdbc8d5a7ce3bda044bc69f59" home="">
-            <group>guest</group>
-        </user>
-        <user name="user-1" uid="3" password="7f0261c14d7d1b8e51680a013daa623e" home="my-collection">
-            <group>my-group</group>
-        </user>
-    </users>
-</auth>]]></markup>
+                        <markup>&lt;auth&gt;
+    &lt;groups last-id="3"&gt;
+        &lt;group name="dba" id="1"/&gt;
+        &lt;group name="guest" id="2"/&gt;
+        &lt;group name="mygroup" id="3"/&gt;
+    &lt;/groups&gt;
+    &lt;users last-id="3"&gt;
+        &lt;user name="admin" uid="1" home=""&gt;
+            &lt;group&gt;dba&lt;/group&gt;
+        &lt;/user&gt;
+        &lt;user name="guest" uid="2" password="e55d929cdbc8d5a7ce3bda044bc69f59" home=""&gt;
+            &lt;group&gt;guest&lt;/group&gt;
+        &lt;/user&gt;
+        &lt;user name="user-1" uid="3" password="7f0261c14d7d1b8e51680a013daa623e" home="my-collection"&gt;
+            &lt;group&gt;my-group&lt;/group&gt;
+        &lt;/user&gt;
+    &lt;/users&gt;
+&lt;/auth&gt;</markup>
                     </programlisting>
                 </example>
                 <para>As we see from this example, passwords are encrypted using an
@@ -361,12 +363,12 @@ include.feature.security.openid = true
                 shell. Enter the following at the command prompt:</para>
             <example>
                 <title>Setting an Administrator Password</title>
-                <screen><![CDATA[type help or ? for help.
-exist:/db>passwd admin
+                <screen>type help or ? for help.
+exist:/db&gt;passwd admin
 password: somepass
 re-enter password: somepass
-exist:/db>quit
-]]></screen>
+exist:/db&gt;quit
+</screen>
             </example>
             <para>Now that the password is set, access control is enabled. To start the shell-mode client as an
                 administrator, you must specify the <option>-u</option> option, following these
@@ -403,10 +405,10 @@ exist:/db>quit
                 belong. An example is shown below:</para>
             <example>
                 <title>Creating a New User</title>
-                <screen><![CDATA[exist:/db/shakespeare>adduser wolf
+                <screen>exist:/db/shakespeare&gt;adduser wolf
 password: xxxxxxxx
 re-enter password: xxxxxxxx
-enter groups: users]]></screen>
+enter groups: users</screen>
             </example>
             <para>To check that the user has been added, use the command <command>users</command> to
                 display a list of all known database users.</para>
@@ -461,12 +463,12 @@ enter groups: users]]></screen>
                         <option>true</option>). An example listing is shown below:</para>
                 <example>
                     <title>Resource Permission Settings</title>
-                    <screen><![CDATA[exist:/db/shakespeare/plays>ls
+                    <screen>exist:/db/shakespeare/plays&gt;ls
     -rwxr-xr--      admin   dba     hamlet.xml
     -rwxr-xr--      admin   dba     macbeth.xml
     -rwxr-xr--      wolf    users   r_and_j.xml
     -rwxr-xr--      admin   dba     shakes.xsl
-    exist:/db/shakespeare/plays>]]></screen>
+    exist:/db/shakespeare/plays&gt;</screen>
                 </example>
                 <para>As shown on the left-hand side, the Java Admin Client displays resource permissions
                     in a format similar to the output of the Unix <command>ls -l</command> command:
@@ -570,14 +572,14 @@ enter groups: users]]></screen>
                             <filename>r_and_j.xml</filename>, you would do the following:</para>
                     <example>
                         <title>Changing Ownership</title>
-                        <screen><![CDATA[
-    exist:/db/shakespeare/plays>chown wolf users r_and_j.xml
-    exist:/db/shakespeare/plays>ls
+                        <screen>
+    exist:/db/shakespeare/plays&gt;chown wolf users r_and_j.xml
+    exist:/db/shakespeare/plays&gt;ls
     -rwxr-xr--      admin   dba     hamlet.xml
     -rwxr-xr--      admin   dba     macbeth.xml
     -rwxr-xr--      wolf    users   r_and_j.xml
     -rwxr-xr--      admin   dba     shakes.xsl
-    exist:/db/shakespeare/plays>]]></screen>
+    exist:/db/shakespeare/plays&gt;</screen>
                     </example>
                 </section>
             </section>

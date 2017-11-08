@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <div data-template="templates:surround" data-template-with="templates/page.html" data-template-at="main">
-    <div class="docbook:load">
-        <div class="col-md-9" id="content">
-            <div class="content">
-                <div class="docbook:to-html"/>
-            </div>
+    <div class="doc-wrapper">
+        <div data-template="docbook:load">      
+            <div class="doc-body" data-template="docbook:to-html"/>                       
         </div>
-        <div class="doc-sidebar hidden-xs">
-          <nav id="doc-nav">
-            <div class="docbook:toc"/>
-          </nav>
-        </div>
+    <!--  //template-load  -->
+        
     </div>
+    <!--  //doc-wrapper  -->
+    <div id="promo-block" class="promo-block">
+        <div class="container">
+            <div class="promo-block-inner">
+                <div class="row">
+                    <div data-template="app:ticket"/>
+                    <div data-template="app:further-reading"/>
+                </div>
+                <!-- //row -->
+            </div>
+            <!-- //promo-inner -->
+        </div>
+        <!-- //container -->
+    </div>
+    <!-- //promo-block -->
 </div>

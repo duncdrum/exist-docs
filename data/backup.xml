@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- $Id$ -->
 <book>
     <bookinfo>
@@ -157,15 +158,15 @@
                     section in <filename>conf.xml</filename>:</para>
                 <example>
                     <title>Job Definition in conf.xml</title>
-                    <programlisting lang="xml"><![CDATA[<job type="system" class="org.exist.storage.ConsistencyCheckTask"
-    cron-trigger="0 0 0/12 * * ?">
-    <!-- the output directory. paths are relative to the data dir -->
-    <parameter name="output" value="export"/>
-    <parameter name="zip" value="yes"/>
-    <parameter name="backup" value="yes"/>
-    <parameter name="incremental" value="yes"/>
-	<parameter name="incremental-check" value="no"/>
-</job>]]></programlisting>
+                    <programlisting lang="xml">&lt;job type="system" class="org.exist.storage.ConsistencyCheckTask"
+    cron-trigger="0 0 0/12 * * ?"&gt;
+    &lt;!-- the output directory. paths are relative to the data dir --&gt;
+    &lt;parameter name="output" value="export"/&gt;
+    &lt;parameter name="zip" value="yes"/&gt;
+    &lt;parameter name="backup" value="yes"/&gt;
+    &lt;parameter name="incremental" value="yes"/&gt;
+	&lt;parameter name="incremental-check" value="no"/&gt;
+&lt;/job&gt;</programlisting>
                 </example>
                 <para>This will launch a consistency check and database backup every 12 hours,
                     starting at midnight. The time/frequency of the backup is specified in the
@@ -239,14 +240,14 @@
                     module: </para>
                 <example>
                     <title>Triggering a Backup From XQuery</title>
-                    <programlisting language="xquery"><![CDATA[let $params :=
- <parameters>
-   <param name="output" value="export"/>
-    <param name="backup" value="yes"/>
-    <param name="incremental" value="yes"/>
- </parameters>
+                    <programlisting language="xquery">let $params :=
+ &lt;parameters&gt;
+   &lt;param name="output" value="export"/&gt;
+    &lt;param name="backup" value="yes"/&gt;
+    &lt;param name="incremental" value="yes"/&gt;
+ &lt;/parameters&gt;
  return
-    system:trigger-system-task("org.exist.storage.ConsistencyCheckTask", $params)]]></programlisting>
+    system:trigger-system-task("org.exist.storage.ConsistencyCheckTask", $params)</programlisting>
                 </example>
                 <para>The function will schedule a backup to be executed as soon as possible.</para>
             </section>
@@ -289,14 +290,14 @@
                 <para>This may produce output as shown below:</para>
                 <example>
                     <title>JMXClient Output</title>
-                    <screen><![CDATA[Sanity report
+                    <screen>Sanity report
 -----------------------------------------------
                 Status: FAIL
       Last check start: Thu May 08 21:40:00 CEST 2008
         Last check end: Thu May 08 21:40:00 CEST 2008
             Check took: 594ms
             Error code: RESOURCE_ACCESS_FAILED
-            Description: 32]]></screen>
+            Description: 32</screen>
                 </example>
                 <para>You can also subscribe to the notifications made available by the SanityReport
                     MBean to be informed of sanity check results. Please consult the <ulink url="jmx.xml">documentation</ulink> on how to configure JMX.</para>
@@ -506,13 +507,13 @@
                 </variablelist>
                 <para>After a complete restore into a clean database, the clean-all and repair functions would
                     typically be combined in the following XQuery:</para>
-                <programlisting language="xquery"><![CDATA[xquery version "3.0";
+                <programlisting language="xquery">xquery version "3.0";
 
 import module namespace repair="http://exist-db.org/xquery/repo/repair" 
 at "resource:org/exist/xquery/modules/expathrepo/repair.xql";
 
 repair:clean-all(),
-repair:repair()]]></programlisting>
+repair:repair()</programlisting>
             </section>
         </section>
         <section>

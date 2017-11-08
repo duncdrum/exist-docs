@@ -1,4 +1,4 @@
-<!--<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "docbookx.dtd">--><!-- $Id$ -->
+<?xml version="1.0" encoding="UTF-8"?>
 <book>
     <bookinfo>
         <productname>eXist-db – Open Source Native XML Database</productname>
@@ -120,8 +120,8 @@
 					typed in or the XPath functions namespace may be selected from the drop down
 					list. </para>
                 <para> TODO: finish Target section </para>
+                <para> TODO: finish Managing Policies section </para>
             </section>
-            <para> TODO: finish Managing Policies section </para>
         </section>
     </chapter>
 </book>

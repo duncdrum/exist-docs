@@ -1,6 +1,6 @@
 <div class="page-wrapper" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="main">
-      <div class="doc-wrapper body-green">
-        <div class="container">
+      <div class="doc-wrapper">
+        <div class="container" role="main" id="quickstart">
           <div id="doc-header" class="doc-header text-center">
             <h1 class="doc-title">
               <i class="icon fa fa-paper-plane"/> Quick Start</h1>
@@ -274,9 +274,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.60-b19, mixed mode)</code>
                     <figcaption>Menu Bar Icon on Mac</figcaption>
                   </figure>
                 </section>
-                <!--//section-block-->
+                <!--//doc-section-->
                 <div class="section-block">
-
                   <div class="callout-block callout-info">
                     <div class="icon-holder">
                       <i class="fa fa-linux"/>
@@ -294,6 +293,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.60-b19, mixed mode)</code>
                     </div>
                     <!--//content-->
                   </div>
+                  <!--// callout-block-->
                   <p>You can also start eXist-db manually if you feel comfortable with the command
                     line: </p>
                   <div class="col-md-12 col-sm-12 col-xs-12">
@@ -328,7 +328,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.60-b19, mixed mode)</code>
                   <p>For more information about these startup scripts, see <a href="advanced-installation.xml#bin-executables">About the Scripts in the bin
                       Directory</a>.</p>
                 </div>
-
+                <!--//section-block-->
                 <div class="callout-block callout-info">
                   <div class="icon-holder">
                     <i class="fa fa-info-circle"/>
@@ -343,7 +343,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.60-b19, mixed mode)</code>
                 </div>
                 <!--//callout-block-->
               </div>
-              <!--//section-block-->
+              <!--//content-inner-->
               <div id="dive" class="section-block">
                 <h2>
                   <a name="diving-in"/>Diving In</h2>
@@ -423,7 +423,10 @@ bin/shutdown.bat -u admin -p youradminpassword</code>
                 <!--//section-block-->
               </section>
               <!--//doc-section-->
-
+            <!--</div>-->
+            <!--//content-inner-->
+          </div>
+          <!--//doc-content-->
               <div class="doc-sidebar hidden-xs">
                 <nav id="doc-nav">
                   <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
@@ -465,7 +468,6 @@ bin/shutdown.bat -u admin -p youradminpassword</code>
                 </nav>
               </div>
               <!--//doc-sidebar-->
-            </div>
           </div>
           <!--//doc-body-->
         </div>
@@ -483,9 +485,6 @@ bin/shutdown.bat -u admin -p youradminpassword</code>
                     <strong>Found a problem with this page?</strong>
                   </h4>
                   <p>Please submit an issue so we can improve it.</p>
-                  <!-- append &body=This%20is%20a%20prefilled%20issue below?
-                    TODO: generate current doc in title instead of hand-coding
-              -->
                   <a href="https://github.com/duncdrum/exist-docs/issues/new?title=error%20on%20quickstart" class="btn btn-red btn-cta">
                     <i class="fa fa-exclamation-circle"/> Submit Issues</a>
                 </div>
@@ -525,19 +524,24 @@ bin/shutdown.bat -u admin -p youradminpassword</code>
                         </tbody>
                       </table>
                     </div>
-                    <!--//desc-->
+                    <!--//table-responsive-->
+                  </div>
+                  <!--//desc-->
                   </div>
                   <!--//content-holder-inner-->
                 </div>
                 <!--//content-holder-->
-              </div>
-              <!--//row-->
             </div>
             <!--//promo-block-inner-->
           </div>
           <!--//container-->
         </div>
         <!--//promo-block-->
-
-      </div>
+        </div>
+        <!--//content-inner-->
+        <script type="text/javascript">
+          var b = document.querySelector("body");
+          
+          b.setAttribute("class", "body-green");
+        </script>
     </div><!--//page-wrapper-->
