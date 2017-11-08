@@ -5,6 +5,8 @@ module namespace app="http://exist-db.org/apps/docs/templates";
 import module namespace templates="http://exist-db.org/xquery/templates";
 import module namespace config="http://exist-db.org/xquery/apps/config" at "config.xqm";
 
+declare variable $app:tickets :="https://github.com/duncdrum/exist-docs/issues/new?title=error%20on%20quickstart";
+
 declare
   %templates:wrap
 function app:body($node as node(), $model as map(*)) {
@@ -86,6 +88,7 @@ declare function app:foot($node as node(), $model as map(*)) as element(footer){
 declare
   %templates:wrap
   function app:promo($node as node(), $model as map(*)) as element(div){
+    (: might go if no new use case comes up :)
     <div id="promo-block" class="promo-block">
       <div class="container">
         <div class="promo-block-inner">
@@ -111,7 +114,7 @@ function app:ticket($node as node(), $model as map(*)) as element(div){
         <strong>Found a problem with this page?</strong>
       </h4>
       <p>Please submit an issue so we can improve it.</p>
-      <a href="https://github.com/duncdrum/exist-docs/issues/new?title=error%20on%20quickstart" class="btn btn-red btn-cta">
+      <a href="{$app:tickets}" class="btn btn-red btn-cta">
         <i class="fa fa-exclamation-circle"/> Submit Issues</a>
     </div>
     <!-- //content-inner -->

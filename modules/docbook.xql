@@ -63,7 +63,7 @@ declare %private function docbook:print-sections($sections as element()*) {
 
 
 declare %public function docbook:sidebar($chapter as element()) as element(ul){
-       
+(:   missintg <ul class="nav doc-sub-menu"> for level1+ :)
         <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
           {for $section in $chapter//section
           return

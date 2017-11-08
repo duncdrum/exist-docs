@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <div data-template="templates:surround" data-template-with="templates/page.html" data-template-at="main">
-    <div class="doc-wrapper" role="a">
+    <div class="doc-wrapper">
+        <div data-template="docbook:load">      
+            <div class="doc-body" data-template="docbook:to-html"/>                       
+        </div>
+    <!--  //template-load  -->
         
-    <div data-template="docbook:load" role="b">      
-        <div role="c" class="doc-body" data-template="docbook:to-html"/>
-                       
-    </div>
-            <!--  //container  -->
-    
     </div>
     <!--  //doc-wrapper  -->
+    <div id="promo-block" class="promo-block">
+        <div class="container">
+            <div class="promo-block-inner">
+                <div class="row">
+                    <div data-template="app:ticket"/>
+                    <div data-template="app:further-reading"/>
+                </div>
+                <!-- //row -->
+            </div>
+            <!-- //promo-inner -->
+        </div>
+        <!-- //container -->
+    </div>
+    <!-- //promo-block -->
 </div>
