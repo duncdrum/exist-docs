@@ -98,7 +98,7 @@ declare %private function docbook:to-html($nodes as node()*) {
         (:   Needs an updated to select the right fa-fa-symbol, also the date ain't accurate should be fixed in docbook:)
             case element(book) return  
                 let $meta := $node/bookinfo
-                let $id := lower-case(replace($meta/title/text(), '\s', '-'))
+                let $id := $meta/title/text()
                 return
                 <div class="container" role="main" id="{$id}">
                     <div id="doc-header" class="doc-header text-center">

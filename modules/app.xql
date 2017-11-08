@@ -16,6 +16,14 @@ function app:body($node as node(), $model as map(*)) {
     default return attribute class {'body-green'}
 };
 
+declare function app:fa-icons($node as node(), $model as map(*)) as element(i){
+  switch($node)
+    case 'Getting Started with Web Application Development'
+      return <i class="icon fa fa-paper-plane"/>
+    default return <i class="icon icon_puzzle_alt"/>
+};
+
+
 declare function app:head($node as node(), $model as map(*)) as element(header){
 
     <header class="header text-center">
@@ -32,10 +40,14 @@ declare function app:head($node as node(), $model as map(*)) as element(header){
           </div>
           <!-- //tag-line -->
           {
-          let $id := data($node/ancestor::body//div[@role="main"]/@id)
-          (: set title via id + role above docHeader :)
+          (: there is probably a better way to find this, but it escapes me right now. :)
+          let $uri := tokenize(request:get-uri(), '/') 
+          let $file := for $token in $uri
+            where contains($token, '.')
+            return
+                substring-before($token, '.')
           return
-            if ($id eq "index")
+            if ($file eq "index")
             then (<div class="social-container">
             <div class="twitter-tweet">
               <a href="https://twitter.com/share" class="twitter-share-button" data-text="eXist-db open source native XML database" data-via="existdb">Tweet</a>
@@ -64,7 +76,7 @@ declare function app:head($node as node(), $model as map(*)) as element(header){
                   <a href="index.html">Home</a>
               </li>
               <li class="active">
-                <a href="#">{$id}</a>
+                <a href="#">{$file}</a>
               </li>
           </ol>)
         }
@@ -168,9 +180,3 @@ function app:further-reading($node as node(), $model as map(*)) as element(div){
 (:<!-- //content-holder --> :)
 };
 
-declare function app:fa-icons($node as node(), $model as map(*)) as element(i){
-  switch($node)
-    case 'Getting Started with Web Application Development'
-      return <i class="icon fa fa-paper-plane"/>
-    default return <i class="icon icon_puzzle_alt"/>
-};
