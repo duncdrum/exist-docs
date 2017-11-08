@@ -10,6 +10,9 @@
 
 new documentation prototype based on pretty-docs theme.
 
+## Why
+This prototype is based on recent discussions about how to improve exist-db's documentation. While it is working, it is far from complete. There are some screenshots and thoughts on how this would be an improvement in the [wiki](https://github.com/duncdrum/exist-docs/wiki)
+
 ## Requirements
 *   [exist-db](http://exist-db.org/exist/apps/homepage/index.html) version: ``3.0.4`` or greater
 *   [ant](http://ant.apache.org) version: ``1.10.1`` \(for building from source\)

@@ -1,7 +1,18 @@
 # Style Guide
+**This is a fake document for demo purposes**
+Producing a real one depends on decisions with respect to the documentation app.
+
+Check [GDDSG](https://developers.google.com/style/) for inspiration.
 Not a law but a suggestions, helps us to achieve consistency.
 
 ## Basics
+We use UK/US spelling, please spell check your stuff.
+
+Politeness is great, but can make documentation hard to read.
+*   GOOD: ``To launch exist without desktop integration use the shell: <filename>bin/startup.sh</filename>``
+*   BAD: ``However, you may always use the provided shell scripts <filename>bin/startup.sh</filename>
+to launch eXist-db in the normal way without desktop integration.``
+
 The documentation consists of two basic types of contents:
 *   Tutorials
 *   Documentation
@@ -28,11 +39,21 @@ Use ``exist-db`` for greater consistency, stick to describing the current versio
 
 ### code listings
 avoid silent glyphs like ``""`` or ``()`` around code listings.
+*   GOOD: ``use the shell scripts <filename>bin/startup.sh</filename>
+to ...``
+*   BAD: ``use the  shell scripts (<filename>bin/startup.sh</filename>)
+to ...``
 
 ### info boxes
 we has them consistency would help. Avoid putting ``Warning`` ``Note`` etc into the title, use the appropriate box types instead.
 *   warning
 *   note
+
+```xml
+<docbook>
+  <note> ... </note>
+</docbook>  
+```
 
 ### screenshots
 Screenshots of, e.g. eXide or Dashboard, should be versioned so they can be more easily updated. Simply include the version in the file name of the png:
