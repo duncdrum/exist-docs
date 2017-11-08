@@ -7,6 +7,8 @@ import module namespace config="http://exist-db.org/xquery/apps/config" at "conf
 
 declare variable $app:tickets :="https://github.com/duncdrum/exist-docs/issues/new?title=error%20on%20quickstart";
 
+(: Placeholder and unfinished :)
+
 declare
   %templates:wrap
 function app:body($node as node(), $model as map(*)) {
@@ -23,6 +25,28 @@ declare function app:fa-icons($node as node(), $model as map(*)) as element(i){
     default return <i class="icon icon_puzzle_alt"/>
 };
 
+
+declare
+  %templates:wrap
+  function app:promo($node as node(), $model as map(*)) as element(div){
+    (: might go if no new use case comes up :)
+    <div id="promo-block" class="promo-block">
+      <div class="container">
+        <div class="promo-block-inner">
+          <div class="row">
+            <div data-template="app:ticket"/>
+            <div data-template="app:further-reading"/>
+            </div>
+            <!-- //row -->
+          </div>
+          <!-- //promo-inner -->
+        </div>
+        <!-- //container -->
+      </div>
+    (:  <!-- //promo-block -->    :)
+  };
+
+(: live n hot :)
 
 declare function app:head($node as node(), $model as map(*)) as element(header){
 
@@ -96,26 +120,6 @@ declare function app:foot($node as node(), $model as map(*)) as element(footer){
   </footer>
 (:  <!-- //footer -->  :)
 };
-
-declare
-  %templates:wrap
-  function app:promo($node as node(), $model as map(*)) as element(div){
-    (: might go if no new use case comes up :)
-    <div id="promo-block" class="promo-block">
-      <div class="container">
-        <div class="promo-block-inner">
-          <div class="row">
-            <div data-template="app:ticket"/>
-            <div data-template="app:further-reading"/>
-            </div>
-            <!-- //row -->
-          </div>
-          <!-- //promo-inner -->
-        </div>
-        <!-- //container -->
-      </div>
-    (:  <!-- //promo-block -->    :)
-  };
 
 declare
   %templates:wrap

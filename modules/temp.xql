@@ -6,6 +6,7 @@ import module namespace config="http://exist-db.org/xquery/apps/config" at "conf
 import module namespace templates="http://exist-db.org/xquery/templates" at "templates.xql";
 import module namespace dq="http://exist-db.org/xquery/documentation/search" at "search.xql";
 
+(: testbed for docbook transform :)
 declare variable $local:INLINE :=
     ("filename", "classname", "methodname", "option", "command", "parameter", "guimenu", "guimenuitem", "guibutton", "function", "envar");
 

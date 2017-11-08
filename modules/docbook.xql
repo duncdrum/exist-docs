@@ -80,7 +80,7 @@ declare %public function docbook:sidebar($chapter as element()) as element(ul){
 };
 
 declare %private function docbook:doc-header($node as element()*) as element(div) {
-(:Placeholder will determine the icon later:)
+(:Placeholder will determine the icon later see also app.xql :)
 <div id="doc-header" class="doc-header text-center">
     <h1 class="doc-title">
         <i class="icon fa fa-paper-plane"></i> Quick Start</h1>
@@ -375,6 +375,8 @@ declare %private function docbook:table($node as node()) {
 };
 
 declare %private function docbook:code($elem as element()) {
+(: language tagging in sources can to be improved :)
+
     let $lang :=
         if ($elem//markup) then
             "xml"
