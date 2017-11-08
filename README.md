@@ -18,7 +18,7 @@ This prototype is based on recent discussions about how to improve exist-db's do
 *   [ant](http://ant.apache.org) version: ``1.10.1`` \(for building from source\)
 
 ## Installation
-1.  Download  the ``exist-docs-3.0.0.xar`` file from GitHub [releases](https://github.com/duncdrum/exist_docs/releases) page.
+1.  Download  the ``exist_docs-3.0.0.xar`` file from GitHub [releases](https://github.com/duncdrum/exist-docs/releases) page.
 2.  Open the [dashboard](http://localhost:8080/exist/apps/dashboard/index.html) of your eXist-db instance and click on ``package manager``.
     1.  Click on the ``add package`` symbol in the upper left corner and select the ``.xar`` file you just downloaded.
 3.   You have successfully installed exist_docs into exist.
@@ -38,7 +38,7 @@ ant
    ant deploy
    ```   
 
-If you see ``BUILD SUCCESSFUL`` ant has generated a ``exist-docs-3.0.0.xar`` file in the ``build/`` folder. To install it, follow the instructions [above](#installation).
+If you see ``BUILD SUCCESSFUL`` ant has generated a ``exist_docs-3.0.0.xar`` file in the ``build/`` folder. To install it, follow the instructions [above](#installation).
 
 ## Contributing
 You can take a look at our [Contribution guidelines](.github/CONTRIBUTING.md) and [Style Guide](.github/STYLE_GUIDE.md).
@@ -53,12 +53,12 @@ CC-BY 3.0 [Xiaoying Riley](https://twitter.com/3rdwave_themes)
 [license-img]: https://img.shields.io/badge/license-AGPL%20v3-blue.svg
 [license-url]: https://www.gnu.org/licenses/agpl-3.0
 [release-img]: https://img.shields.io/badge/release-3.0.0-green.svg
-[release-url]: https://github.com/duncdrum/exist_docs/releases/latest
-[npm-image]: https://badge.fury.io/js/exist_docs.svg
-[npm-url]: https://npmjs.org/package/exist_docs
-[travis-image]: https://travis-ci.org/duncdrum/exist_docs.svg?branch=master
-[travis-url]: https://travis-ci.org/duncdrum/exist_docs
-[daviddm-image]: https://david-dm.org/duncdrum/exist_docs.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/duncdrum/exist_docs
-[coveralls-image]: https://coveralls.io/repos/duncdrum/exist_docs/badge.svg
-[coveralls-url]: https://coveralls.io/r/duncdrum/exist_docs
+[release-url]: https://github.com/duncdrum/exist-docs/releases/latest
+[npm-image]: https://badge.fury.io/js/exist-docs.svg
+[npm-url]: https://npmjs.org/package/exist-docs
+[travis-image]: https://travis-ci.org/duncdrum/exist-docs.svg?branch=master
+[travis-url]: https://travis-ci.org/duncdrum/exist-docs
+[daviddm-image]: https://david-dm.org/duncdrum/exist-docs.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/duncdrum/exist-docs
+[coveralls-image]: https://coveralls.io/repos/duncdrum/exist-docs/badge.svg
+[coveralls-url]: https://coveralls.io/r/duncdrum/exist-docs
