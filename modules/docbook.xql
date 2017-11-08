@@ -386,8 +386,8 @@ declare %private function docbook:code($elem as element()) {
     if (lower-case($lang) eq 'xquery')
     then (<div class="code-block">
             <pre>
-                <code data-language="XQuery">{ replace($elem/string(), "^\s+", "") }</code>
-            </pre>
+                <code data-language="xquery">{ replace($elem/string(), "^\s+", "") }</code>
+            </pre>              
         </div>)
     else (<div class="code-block">
             <pre>
