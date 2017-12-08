@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- $Id$ -->
 <book>
     <bookinfo>
@@ -25,8 +26,8 @@
             <para>To briefly summarize each section's contents: <itemizedlist>
                     <listitem>
                         <para>
-                            <ulink url="#current-status-of-xquery-support">Current Status of XQuery
-                                Support</ulink> describes the precise nature of eXist-db's
+                            <ulink url="#current-status-of-xquery-support">Current Status of
+                                XQuery Support</ulink> describes the precise nature of eXist-db's
                             conformance to the XQuery specification.</para>
                     </listitem>
                     <listitem>
@@ -95,9 +96,9 @@
                 Functions in the standard function library follow the <ulink url="http://www.w3.org/TR/xpath-functions/">"XQuery 1.0 and XPath 2.0 Functions
                     and Operators" recommendation</ulink>; see the eXist-db <ulink url="/exist/apps/fundocs">XQuery Function Documentation</ulink>.</para>
             <para>eXist-db also implements most features of the current <ulink url="http://www.w3.org/TR/xquery-30/">"XQuery 3.0"</ulink> Working Draft, as
-                detailed in the section on <ulink url="#xquery-30">XQuery 3 support</ulink> below.
-                From <ulink url="#xquery-31">XQuery 3.1</ulink>, the map data type is fully
-                supported. An implementation of arrays is in the works.</para>
+                detailed in the section on <ulink url="#xquery-30">XQuery 3 support</ulink>
+                below. From <ulink url="#xquery-31">XQuery 3.1</ulink>, the map data type is fully supported. An implementation of
+                arrays is in the works.</para>
             <section id="xqts">
                 <title>XQuery Test Suite compliance</title>
                 <para>The eXist-db XQuery implementation is tested against the official <ulink url="http://dev.w3.org/2006/xquery-test-suite/">XML Query Test Suite
@@ -112,8 +113,9 @@
                 <para>In addition to the standard features, eXist-db provides extended support for
                         <ulink url="#module-system">
                         <emphasis>modules</emphasis>
-                    </ulink> and implements the <emphasis>full axis</emphasis> feature, which means
-                    you can use the <emphasis>optional axes</emphasis>: <command>ancestor</command>,
+                    </ulink> and
+                    implements the <emphasis>full axis</emphasis> feature, which means you can use
+                    the <emphasis>optional axes</emphasis>: <command>ancestor</command>,
                         <command>ancestor-or-self</command>, <command>following</command>,
                         <command>following-sibling</command>, <command>preceding</command>, and
                         <command>preceding-sibling</command>. (The only optional axis not supported
@@ -121,17 +123,19 @@
             </section>
             <section id="unsupported-features">
                 <title>Unsupported features</title>
-                <para>eXist-db implements all features described in the XQuery 1.0 specification,
-                    with the exception of the following:</para>
+                <para>eXist-db implements all features described in the XQuery 1.0 specification, with
+                    the exception of the following:</para>
                 <itemizedlist>
                     <listitem>
                         <para>Schema-related Features (<command>validate</command> and
                                 <command>import schema</command>). eXist-db's XQuery processor does
-                            currently not support the <ulink url="http://www.w3.org/TR/xquery/#id-schema-import-feature">schema
-                                import</ulink> and <ulink url="http://www.w3.org/TR/xquery/#id-schema-validation-feature">schema validation features</ulink> defined as <ulink url="http://www.w3.org/TR/xquery/#id-conform-optional-features">optional</ulink> in the XQuery specification. eXist-db provides
-                                <ulink url="{fundocs}/view.html?uri=http://exist-db.org/xquery/validation&amp;location=java:org.exist.xquery.functions.validation.ValidationModule">extension functions</ulink> to perform XML validation. The database
-                            does not store type information along with the nodes. It therefore
-                            cannot know the typed value of a node and has to assume
+                            currently not support the <ulink url="http://www.w3.org/TR/xquery/#id-schema-import-feature">schema import</ulink> and 
+                            <ulink url="http://www.w3.org/TR/xquery/#id-schema-validation-feature">schema validation features</ulink>
+                            defined as <ulink url="http://www.w3.org/TR/xquery/#id-conform-optional-features">optional</ulink> 
+                            in the XQuery specification. eXist-db provides <ulink url="{fundocs}/view.html?uri=http://exist-db.org/xquery/validation&amp;location=java:org.exist.xquery.functions.validation.ValidationModule">extension functions</ulink> 
+                            to perform XML validation. The database does not
+                            store type information along with the nodes. It therefore cannot know
+                            the typed value of a node and has to assume
                                 <option>xs:untypedAtomic</option>. This is the behaviour defined by
                             the XQuery specification.</para>
                     </listitem>
@@ -149,8 +153,7 @@
             </section>
             <section id="xquery-30">
                 <title>XQuery 3.0 Support</title>
-                <para>eXist-db implements the following features of the <ulink url="http://www.w3.org/TR/xquery-30/">"XQuery 3.0"</ulink> Working
-                    Draft</para>
+                <para>eXist-db implements the following features of the <ulink url="http://www.w3.org/TR/xquery-30/">"XQuery 3.0"</ulink> Working Draft</para>
                 <itemizedlist>
                     <listitem>
                         <para>Higher Order Functions: eXist-db completely supports higher-order
@@ -179,17 +182,16 @@ return
                             dynamic errors and type errors. For example,
                             <synopsis language="xquery">try { 'a' + 7 } catch * { concat($err:code, ": ", $err:description) }</synopsis>
                             returns the full error (excerpted here):
-                            <synopsis>err:XPTY0004: It is a type error if...</synopsis> For more
-                            information, see the article on the eXist-db blog, <ulink url="http://atomic.exist-db.org/HowTo/XQuery3/Try-CatchExpression">Try-Catch Expression</ulink> and the <ulink url="http://www.w3.org/TR/xquery-30/#id-try-catch">specification</ulink>.</para>
+                            <synopsis>err:XPTY0004: It is a type error if...</synopsis>
+                            For more information, see the article on the eXist-db blog, <ulink url="http://atomic.exist-db.org/HowTo/XQuery3/Try-CatchExpression">Try-Catch Expression</ulink> and the <ulink url="http://www.w3.org/TR/xquery-30/#id-try-catch">specification</ulink>.</para>
                     </listitem>
                     <listitem>
                         <para>The new String Concatenation expression: A convenient alternative to
                             the <command>concat()</command> function. Strings can be joined with
                             <synopsis>||</synopsis>. For example,
-                            <synopsis language="xquery">"Hello " || $world || "!"</synopsis> is
-                            equivalent to
-                            <synopsis language="xquery">concat("Hello", $world, "!")</synopsis>. See
-                            the original <ulink url="http://markmail.org/message/a7dmmhixwbbnwikt">announcement</ulink> on exist-open and the <ulink url="http://www.w3.org/TR/xquery-30/#id-string-concat-expr">specification</ulink>.</para>
+                            <synopsis language="xquery">"Hello " || $world || "!"</synopsis> is equivalent to
+                            <synopsis language="xquery">concat("Hello", $world, "!")</synopsis>. See the original
+                                <ulink url="http://markmail.org/message/a7dmmhixwbbnwikt">announcement</ulink> on exist-open and the <ulink url="http://www.w3.org/TR/xquery-30/#id-string-concat-expr">specification</ulink>.</para>
                     </listitem>
                     <listitem>
                         <para>The Simple Map Operator: Can be used to replace short "for" loops,
@@ -230,15 +232,13 @@ declare option output:media-type "application/json";</synopsis>
                         </para>
                     </listitem>
                 </itemizedlist>
-                <para>To make use of these features of XQuery 3.0, use the proper version
-                    declaration in the prolog of your queries:</para>
+                <para>To make use of these features of XQuery 3.0, use the proper version declaration in the prolog of your queries:</para>
                 <synopsis>xquery version "3.0";</synopsis>
             </section>
             <section>
                 <title>Missing XQuery 3.0 Features</title>
-                <para>eXist-db 2.0 does not support some of the less frequently used XQuery 3.0
-                    constructs, mainly because we did not encounter many use cases for them yet.
-                    This may certainly change though:</para>
+                <para>eXist-db 2.0 does not support some of the less frequently used XQuery 3.0 constructs, mainly
+                    because we did not encounter many use cases for them yet. This may certainly change though:</para>
                 <itemizedlist>
                     <listitem>
                         <para>"tumbling" and "sliding window" in FLWOR expressions</para>
@@ -250,9 +250,9 @@ declare option output:media-type "application/json";</synopsis>
                         <para>"allowing empty" in FLWOR clause</para>
                     </listitem>
                 </itemizedlist>
-                <para>The following functions from the XQuery 3.0 function specification are missing
-                    as well, but most of them are in fact just replacements for functions which have
-                    been available in eXist-db since a long time:</para>
+                <para>The following functions from the XQuery 3.0 function specification are missing as well, but
+                    most of them are in fact just replacements for functions which have been available in eXist-db since
+                    a long time:</para>
                 <table frame="all">
                     <title>Unsupported XQuery 3.0 Functions</title>
                     <tgroup cols="2">
@@ -296,25 +296,20 @@ declare option output:media-type "application/json";</synopsis>
             </section>
             <section id="xquery-31">
                 <title>XQuery 3.1</title>
-                <para>The specification for XQuery 3.1 is still subject to change. The main
-                    additions are maps and arrays.</para>
+                <para>The specification for XQuery 3.1 is still subject to change. The main additions are maps and arrays.</para>
                 <section>
                     <title>Maps</title>
-                    <para>Maps are fundamental for the templating module and other libraries in
-                        eXist 2.2, and are thus very well supported. Over time, the specification
-                        changed slightly and so did the implementation in eXist. For example, to
-                        keep backwards compatibility, eXist allows the older notation in map
-                        constructors: <code>key:=value</code> in addition to the new one, <code>key:
-                            value</code>. Also, some functions in eXist support collations, which
-                        are no longer in the specification.</para>
-                    <para>Please refer to the <ulink url="{demo}/examples/basic/maps.html">demo
-                            app</ulink> for basic examples.</para>
+                    <para>Maps are fundamental for the templating module and other libraries in eXist 2.2, and are thus very well supported. 
+                    Over time, the specification changed slightly and so did the
+                    implementation in eXist. For example, to keep backwards compatibility, eXist allows the older notation in map constructors: <code>key:=value</code>
+                    in addition to the new one, <code>key: value</code>. Also, some functions in eXist support collations, which are no longer
+                    in the specification.</para>
+                    <para>Please refer to the <ulink url="{demo}/examples/basic/maps.html">demo app</ulink> for basic examples.</para>
                 </section>
                 <section>
                     <title>Arrays</title>
-                    <para>Support for arrays has been implemented, but it is not in the official
-                        codebase yet. We're waiting for the specification to stabilize before we'll
-                        merge the code into develop.</para>
+                    <para>Support for arrays has been implemented, but it is not in the official codebase yet. We're waiting for the
+                        specification to stabilize before we'll merge the code into develop.</para>
                 </section>
             </section>
             <section id="related-specifications">
@@ -409,8 +404,7 @@ at "xmldb:exist:///db/modules/test.xqm";</synopsis>
                             load path is the URI of that collection.</para>
                         <para>For example, if you access an XQuery via the REST server:</para>
                         <synopsis>http://localhost:8080/exist/servlet/db/modules/test.xq</synopsis>
-                        <para>All relative module paths will be resolved relative to the
-                                <filename>/db/modules</filename> collection.</para>
+                        <para>All relative module paths will be resolved relative to the <filename>/db/modules</filename> collection.</para>
                     </listitem>
                 </orderedlist>
             </section>
@@ -442,8 +436,8 @@ at "xmldb:exist:///db/modules/test.xqm";</synopsis>
                 expression will be added to an internal pool of prepared queries. The next time a
                 query or module is loaded from the same location, it will not be compiled again.
                 Instead, the already compiled code is reused. The code will only be recompiled if
-                eXist-db decides that the source was modified or it wasn't used for a longer period
-                of time.</para>
+                eXist-db decides that the source was modified or it wasn't used for a longer period of
+                time.</para>
             <para>If a query is accessed by more than one thread concurrently, each new thread will
                 create a new copy of the compiled query. The copies will be added to the query pool
                 until it reaches a pre-defined limit.</para>
@@ -452,32 +446,27 @@ at "xmldb:exist:///db/modules/test.xqm";</synopsis>
         <section id="extension-functions">
             <title>eXist-db Extension Functions</title>
             <para>eXist-db offers a number of additional functions. While the XQuery Function
-                Documentation lists them all, several possess articles of their own discussing some
-                of the essential uses in detail:<itemizedlist>
+                Documentation lists them all, several possess articles of their own discussing some of the essential uses in detail:<itemizedlist>
                     <listitem>
                         <para>
-                            <ulink url="xmldb.xml">xmldb</ulink>: A module for manipulating database
-                            contents</para>
+                            <ulink url="xmldb.xml">xmldb</ulink>: A module for manipulating
+                            database contents</para>
                     </listitem>
                     <listitem>
                         <para>
-                            <ulink url="util.xml">util</ulink>: A module containing several
-                            convenient utility functions</para>
+                            <ulink url="util.xml">util</ulink>: A module containing several convenient utility functions</para>
                     </listitem>
                     <listitem>
                         <para>
-                            <ulink url="kwic.xml">kwic</ulink>: A module that provides keyword in
-                            context (KWIC) highlighting functions</para>
+                            <ulink url="kwic.xml">kwic</ulink>: A module that provides keyword in context (KWIC) highlighting functions</para>
                     </listitem>
                     <listitem>
                         <para>
-                            <ulink url="lucene.xml">ft</ulink>: A module for accessing the full text
-                            index, built on the Lucene library</para>
+                            <ulink url="lucene.xml">ft</ulink>: A module for accessing the full text index, built on the Lucene library</para>
                     </listitem>
                     <listitem>
                         <para>
-                            <ulink url="contentextraction.xml">contentextraction</ulink>: A module
-                            for extracting content from binary files</para>
+                            <ulink url="contentextraction.xml">contentextraction</ulink>: A module for extracting content from binary files</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -490,7 +479,7 @@ at "xmldb:exist:///db/modules/test.xqm";</synopsis>
                 URI should start with the prefix <option>java:</option> followed by the fully
                 qualified class name of the class. For example, the following code snippet calls the
                 static method <methodname>sqrt</methodname> (square-root function) of class
-                    <classname>java.lang.Math</classname>:</para>
+                <classname>java.lang.Math</classname>:</para>
             <example>
                 <title>Calling a Static Method</title>
                 <programlisting language="xquery">
@@ -500,7 +489,7 @@ math:sqrt(2)</programlisting>
             <para>Note that if the function name contains a hyphen, the letter following the hyphen
                 is converted to upper-case and the hyphen is removed (i.e. it applies the CamelCase
                 naming convention), and so, <code>to-string()</code> will call the Java method
-                    <code>toString()</code>.</para>
+                <code>toString()</code>.</para>
             <para>If more than one method in the class matches the given name and parameter count,
                 eXist-db tries to select the method that best fits the passed parameter types at
                 runtime. The result of the method call can be assigned to an XQuery variable. If
@@ -508,7 +497,7 @@ math:sqrt(2)</programlisting>
                 type is the built-in type <option>object</option>.</para>
             <para>
                 <emphasis>Java constructors</emphasis> are called using the function
-                    <option>new</option>. Again, a matching constructor is selected by looking at
+                <option>new</option>. Again, a matching constructor is selected by looking at
                 the parameter count and types. The returned value is a new Java object with the
                 built-in type <option>object</option>.</para>
             <para>
@@ -576,19 +565,17 @@ declare namespace file="java:java.io.File";
                         extension modules to be easily developed in Java. See <ulink url="extensions.xml">XQuery Extension Modules</ulink> for the full
                         documentation on this eXist-db development best practice.</para>
                 </note>
-                <para>Moreover, the class
-                        <classname>org.exist.xpath.AbstractInternalModule</classname> already
-                    provides an implementation skeleton. The class constructor expects an array of
-                    function definitions for all functions that should be registered. A function
-                    definition (class <classname>FunctionDef</classname>) has two properties: the
-                    static signature of the function (as an instance of
-                        <classname>FunctionSignature</classname>), and the Java Class that
-                    implements the function.</para>
-                <para>A function is a class extending
-                        <classname>org.exist.xquery.Function</classname> or
-                        <classname>org.exist.xquery.BasicFunction</classname>. Functions without
-                    special requirements (e.g. overloading) should subclass BasicFunction. To
-                    illustrate, the following is a simple function definition:</para>
+                <para>Moreover, the class <classname>org.exist.xpath.AbstractInternalModule</classname>
+                already provides an implementation skeleton. The class constructor expects an array
+                of function definitions for all functions that should be registered. A function
+                definition (class <classname>FunctionDef</classname>) has two properties: the static
+                signature of the function (as an instance of
+                    <classname>FunctionSignature</classname>), and the Java Class that implements
+                the function.</para>
+                <para>A function is a class extending <classname>org.exist.xquery.Function</classname>
+                or <classname>org.exist.xquery.BasicFunction</classname>. Functions without special
+                requirements (e.g. overloading) should subclass BasicFunction. To illustrate, the
+                following is a simple function definition:</para>
                 <example>
                     <title>A Basic Java Function</title>
                     <programlisting language="java">
@@ -623,40 +610,39 @@ throws XPathException {
 }
 }</programlisting>
                 </example>
-                <para>In looking at this sample, first note that every function class has to provide
-                    a function <emphasis>signature</emphasis>. The function signature defines the
-                        <emphasis>QName</emphasis> by which the function is identified, a
-                    documentation string, the sequence types of all arguments, and the sequence type
-                    of the returned value. In the example above, we accept a single argument named
-                    "text" of type <option>xs:string</option> and a cardinality of
-                        <option>ZERO_OR_MORE</option> with the description "The text to echo". In
-                    other words, we accept any sequence of strings containing zero or more items.
-                    The return value is of type <option>xs:string</option> and a cardinality of
-                        <option>ZERO_OR_MORE</option> with the description "the echoed text".
-                        <emphasis role="bold">Note:</emphasis> The parameter description should be
-                    normal sentence starting with a capital letter. The return value description is
-                    always prepended with "Returns ", so have the text to match. </para>
-                <para>Next, the subclass overwrites the <command>eval</command> method, which has
-                    two arguments: the first contains the values of all arguments passed to the
-                    function, the second passes the current context sequence (which might be null).
-                    Note that the argument values in the array <option>args</option> have already
-                    been checked to match the sequence types defined in the function signature. We
-                    therefore do not have to recheck the length of the array: if more or less than
-                    one argument were passed to the function, an exception would have been thrown
-                    before eval gets called.</para>
-                <para>In XQuery, all values are passed as sequences. A sequence consists of one or
-                    more items, and every item is either an atomic value or a node. Furthermore, a
-                    single item is also a sequence. The function signature specifies that any
-                    sequence containing zero or more strings is acceptable for our method. We
-                    therefore have to check if the empty sequence has been passed. In this case, the
-                    function call returns immediately. Otherwise, we iterate through each item in
-                    the sequence, prepend <option>echo:</option>" to its string value, and add it to
-                    the result sequence.</para>
+                <para>In looking at this sample, first note that every function class has to provide a
+                function <emphasis>signature</emphasis>. The function signature defines the
+                    <emphasis>QName</emphasis> by which the function is identified, a documentation
+                string, the sequence types of all arguments, and the sequence type of the returned
+                value. In the example above, we accept a single argument named "text" of type
+                    <option>xs:string</option> and a cardinality of <option>ZERO_OR_MORE</option>
+                with the description "The text to echo". In other words, we accept any sequence of
+                strings containing zero or more items. The return value is of type
+                    <option>xs:string</option> and a cardinality of <option>ZERO_OR_MORE</option>
+                with the description "the echoed text". <emphasis role="bold">Note:</emphasis> The
+                parameter description should be normal sentence starting with a capital letter. The
+                return value description is always prepended with "Returns ", so have the text to
+                match. </para>
+                <para>Next, the subclass overwrites the <command>eval</command> method, which has two
+                arguments: the first contains the values of all arguments passed to the function,
+                the second passes the current context sequence (which might be null). Note that the
+                argument values in the array <option>args</option> have already been checked to
+                match the sequence types defined in the function signature. We therefore do not have
+                to recheck the length of the array: if more or less than one argument were passed to
+                the function, an exception would have been thrown before eval gets called.</para>
+                <para>In XQuery, all values are passed as sequences. A sequence consists of one or more
+                items, and every item is either an atomic value or a node. Furthermore, a single
+                item is also a sequence. The function signature specifies that any sequence
+                containing zero or more strings is acceptable for our method. We therefore have to
+                check if the empty sequence has been passed. In this case, the function call returns
+                immediately. Otherwise, we iterate through each item in the sequence, prepend
+                    <option>echo:</option>" to its string value, and add it to the result
+                sequence.</para>
                 <para>In the next step, we want to add the function to a new module, and therefore
-                    provide a driver class. The driver class defines a namespace URI and a default
-                    prefix for the module. Functions are registered by passing an array of
-                        <option>FunctionDef</option> to the constructor. The following is an example
-                    driver class definition:</para>
+                provide a driver class. The driver class defines a namespace URI and a default
+                prefix for the module. Functions are registered by passing an array of
+                    <option>FunctionDef</option> to the constructor. The following is an example
+                driver class definition:</para>
                 <example>
                     <title>Creating a Driver Class</title>
                     <programlisting language="java">
@@ -685,8 +671,7 @@ public String getDefaultPrefix() {
 
 }</programlisting>
                 </example>
-                <para>Finally, we are able to use this newly created module in an XQuery
-                    script:</para>
+                <para>Finally, we are able to use this newly created module in an XQuery script:</para>
                 <example>
                     <title>Importing a Module</title>
                     <programlisting language="xquery">
@@ -699,10 +684,10 @@ at "java:org.exist.examples.xquery.ExampleModule";
 example:echo(("Hello", "World!"))
 </programlisting>
                 </example>
-                <para>The query engine recognizes the <option>java:</option> prefix in the location
-                    URI, and treats the remaining part (in this case,
-                        <option>org.exist.examples.xquery.ExampleModule</option>) as a fully
-                    qualified class name leading to the driver class of the module.</para>
+                <para>The query engine recognizes the <option>java:</option> prefix in the location URI,
+                and treats the remaining part (in this case,
+                    <option>org.exist.examples.xquery.ExampleModule</option>) as a fully qualified
+                class name leading to the driver class of the module.</para>
             </section>
         </section>
         <section id="collations">
@@ -745,14 +730,11 @@ return $w</synopsis>
 "Bäuerin" &lt; "Bier"</synopsis>
             <para>Which returns <option>true</option>. Note that if you use the default codepoint
                 collation instead, the comparison would evaluate to <option>false</option>.</para>
-            <para>You can also use java class specified collators. They should be subclassing
-                    <option>java.text.RuleBasedCollator</option>. It will be used like this:</para>
-            <synopsis language="xquery">for $w in ("das", "daß", "Buch", "Bücher", "Bauer", "Bäuerin", "Jagen", "Jäger") 
+	<para>You can also use java class specified collators. They should be subclassing <option>java.text.RuleBasedCollator</option>. It will be used like this:</para>
+        <synopsis language="xquery">for $w in ("das", "daß", "Buch", "Bücher", "Bauer", "Bäuerin", "Jagen", "Jäger") 
 order by $w collation "java:f.c.d.n.MyRuleBasedGermanCollator" 
 return $w</synopsis>
-            <para>The jar with the .class file(s) of the collator needs to be in
-                    <filename>${EXIST_HOME}/lib/user</filename>
-            </para>
+        <para>The jar with the .class file(s) of the collator needs to be in <filename>${EXIST_HOME}/lib/user</filename></para>
             <note>
                 <para>eXist-db's range index is currently only usable with the default codepoint
                     collation. This means that comparisons using a different collation will not be
@@ -786,13 +768,9 @@ return $w</synopsis>
                 <para>Note that these same options can be passed using the
                         <methodname>XPathQueryService.setProperty()</methodname> and
                         <methodname>XQueryService.setProperty()</methodname> methods in Java. These
-                    methods are defined in <ulink url="http://download.oracle.com/javase/6/docs/api/javax/xml/transform/OutputKeys.html">
-                        <classname>javax.xml.transform.OutputKeys</classname>
-                    </ulink> and
-                        <ulink url="http://exist-db.org/api/org/exist/storage/serializers/EXistOutputKeys.html">
-                        <classname>EXistOutputKeys</classname>
-                    </ulink>. The latter
-                    eXist-specific options include the following:</para>
+                    methods are defined in
+                    <ulink url="http://download.oracle.com/javase/6/docs/api/javax/xml/transform/OutputKeys.html"><classname>javax.xml.transform.OutputKeys</classname></ulink>
+                    and <ulink url="http://exist-db.org/api/org/exist/storage/serializers/EXistOutputKeys.html"><classname>EXistOutputKeys</classname></ulink>. The latter eXist-specific options include the following:</para>
                 <variablelist>
                     <varlistentry>
                         <term>
@@ -837,13 +815,12 @@ return $w</synopsis>
                                 top-level element, "all" will show the ids of all elements.</para>
                         </listitem>
                     </varlistentry>
-                    <varlistentry>
+					<varlistentry>
                         <term>
                             <option>json-ignore-whitespace-text-nodes= yes | no</option>
                         </term>
                         <listitem>
-                            <para>to discard white-space text nodes when serializing XML/XDM to
-                                JSON.</para>
+                            <para>to discard white-space text nodes when serializing XML/XDM to JSON.</para>
                         </listitem>
                     </varlistentry>
                 </variablelist>
@@ -931,7 +908,7 @@ return $w</synopsis>
                 </variablelist>
                 <para>For example, to disable XInclude expansion, and indent the output, you can use
                     the following syntax:</para>
-                <synopsis>declare option exist:serialize "expand-xincludes=no  indent=yes";</synopsis>
+                <synopsis>declare option exist:serialize "expand-xincludes=no indent=yes";</synopsis>
                 <para>For the output method parameter, eXist-db currently recognizes three methods:
                         <option>xml</option>, <option>xhtml</option> and <option>text</option>. Note
                     that unlike the xml method, the xhtml setting uses only the short form for
@@ -991,9 +968,9 @@ declare option output:media-type "application/json";</synopsis>
                     method for batching updates on the database into a single Transaction, allowing
                     a set of updates to be atomically guaranteed. Also for each affected document or
                     collection, any configured Triggers will only be called once, the
-                        <methodname>prepare()</methodname> method will be fired before the first
-                    update to the configured resource and the <methodname>finish()</methodname>
-                    method fired after the last update to the configured resource.</para>
+                        <methodname>prepare()</methodname> method will be fired before the first update to
+                    the configured resource and the <methodname>finish()</methodname> method fired after the
+                    last update to the configured resource.</para>
                 <synopsis>(# exist:batch-transaction #) {
 	            	update value //some/path/expressionA width "valueA",
             		update value //some/path/expressionB width "valueB"
@@ -1004,9 +981,9 @@ declare option output:media-type "application/json";</synopsis>
             <section>
                 <title>exist:force-index-use</title>
                 <para>
-                    <emphasis>For debugging purposes</emphasis>. An expression that can be assisted
-                    by indexes: comparisons, <function>fn:matches()</function>... Will raise an
-                    error if, for any reason, this assistance can not be performed.</para>
+                    <emphasis>For debugging purposes</emphasis>. An expression that can be
+                    assisted by indexes: comparisons, <function>fn:matches()</function>... Will
+                    raise an error if, for any reason, this assistance can not be performed.</para>
                 <para>This can help to check whether the indexes are correctly defined or
                     not.</para>
                 <synopsis>(# exist:force-index-use #) {

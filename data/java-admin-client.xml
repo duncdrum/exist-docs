@@ -155,30 +155,30 @@
         The listing below shows an example session of how to add the sample documents:</para>
                 <example>
                     <title>Adding the sample documents</title>
-                    <screen format="linespecific">
-exist:/db&gt;mkcol shakespeare
+                    <screen format="linespecific"><![CDATA[
+exist:/db>mkcol shakespeare
 created collection.
-exist:/db&gt;cd shakespeare
-exist:/db/shakespeare&gt;mkcol plays
+exist:/db>cd shakespeare
+exist:/db/shakespeare>mkcol plays
 created collection.
-exist:/db/shakespeare&gt;cd plays
-exist:/db/shakespeare/plays&gt;put samples/shakespeare/
+exist:/db/shakespeare>cd plays
+exist:/db/shakespeare/plays>put samples/shakespeare/
 storing document hamlet.xml (1 of 4) ...done.
 storing document much_ado.xml (2 of 4) ...done.
 storing document r_and_j.xml (3 of 4) ...done.
 storing document shakes.xsl (4 of 4) ...done.
-exist:/db/shakespeare/plays&gt; cd
-exist:/db&gt;mkcol library
+exist:/db/shakespeare/plays> cd
+exist:/db>mkcol library
 created collection.
-exist:/db&gt;cd library
-exist:/db/library&gt;put samples/biblio.rdf
+exist:/db>cd library
+exist:/db/library>put samples/biblio.rdf
 storing document biblio.rdf (1 of 1) ...done.
-exist:/db/library&gt;cd
-exist:/db&gt;mkcol xinclude
+exist:/db/library>cd
+exist:/db>mkcol xinclude
 created collection.
-exist:/db&gt;cd xinclude
-exist:/db/xinclude&gt;put samples/xinclude
-</screen>
+exist:/db>cd xinclude
+exist:/db/xinclude>put samples/xinclude
+]]></screen>
                 </example>
                 <para>Adding files to the database is done using put. Put expects either a single file, a
         file-pattern or a directory name as argument. If a directory is specified, all XML and XSL
@@ -288,12 +288,12 @@ exist:/db/xinclude&gt;put samples/xinclude
                         </itemizedlist>
                      This is also used by the eXist-db servers . For example to specify that
           .xmap extension is used for XML files you can specify it like this in mime-types.xml: <programlisting>  
-			    
-&lt;mime-type name="application/xml" type="xml"&gt;
- &lt;description&gt;XML document&lt;/description&gt;  
- &lt;extensions&gt;.xml,.xsl,.xsd,.mods,.xmi,.xconf,.xslt,.wsdl,.x3d,.rdf,.owl,.xmap&lt;/extensions&gt;  
-&lt;/mime-type&gt;  
-			  </programlisting>
+			  <![CDATA[  
+<mime-type name="application/xml" type="xml">
+ <description>XML document</description>  
+ <extensions>.xml,.xsl,.xsd,.mods,.xmi,.xconf,.xslt,.wsdl,.x3d,.rdf,.owl,.xmap</extensions>  
+</mime-type>  
+			  ]]></programlisting>
                     </para>
                 </note>
             </section>

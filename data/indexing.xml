@@ -20,7 +20,7 @@
                 types of indexes:</para>
             <note>
                 <para>Properly configured indexes have a huge impact on database performance! Some
-                    expressions might run a hundred times faster with an index. This particular
+                    expressions might run a hundred times faster with an index. This particulary
                     applies to the range index: without a range index, eXist has to do a full scan
                     over the context nodes to look up an element value, which severly limits 
                     performance and scalability.</para>

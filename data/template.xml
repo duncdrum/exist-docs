@@ -1,4 +1,6 @@
-<!-- $Id$ --><!-- This is a template for writing documentation for the eXist-db project.
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<!-- This is a template for writing documentation for the eXist-db project.
      Please copy this and change the data and replace the author information. -->
 <book>
     <bookinfo>
