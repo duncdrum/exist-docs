@@ -1,6 +1,7 @@
-xquery version "1.0";
+xquery version "3.0";
 
 import module namespace request="http://exist-db.org/xquery/request";
+import module namespace login="http://exist-db.org/xquery/login" at "resource:org/exist/xquery/modules/persistentlogin/login.xql";
 import module namespace xdb = "http://exist-db.org/xquery/xmldb";
 
 declare variable $exist:path external;
@@ -33,6 +34,20 @@ else if ($exist:path eq "/") then
             <forward url="{$exist:controller}/modules/view.xql"/>
         </error-handler>
     </dispatch>
+    
+else if ($exist:resource eq "login") then
+    let $loggedIn := login:set-user("org.exist.login", (), true())
+    return
+        try {
+            util:declare-option("exist:serialize", "method=json"),
+            <status>
+                <user>{request:get-attribute("org.exist.login.user")}</user>
+                <isAdmin json:literal="true">{ xmldb:is-admin-user(request:get-attribute("org.exist.login.user")) }</isAdmin>
+            </status>
+        } catch * {
+            response:set-status-code(401),
+            <status>{$err:description}</status>
+        }    
 
 (: Pass all requests to XML files through to view.xql, which handles HTML templating :)
 else if (ends-with($exist:resource, ".xml")) then
@@ -55,6 +70,8 @@ else if (ends-with($exist:resource, ".xml")) then
 
 (: Pass all requests to HTML files through view.xql, which handles HTML templating :)
 else if (ends-with($exist:resource, ".html")) then
+    let $loggedIn := login:set-user("org.exist.login", (), true())
+    return        
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
         <view>
 			<forward url="{$exist:controller}/modules/view.xql">
@@ -67,6 +84,11 @@ else if (ends-with($exist:resource, ".html")) then
             <forward url="{$exist:controller}/modules/view.xql"/>
         </error-handler>
     </dispatch>
+    
+else if ($exist:resource = "reindex.xql") then
+    <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
+        {login:set-user("org.exist.login", (), false())}
+    </dispatch>    
 
 else if (contains($exist:path, "/$shared/")) then
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
@@ -81,6 +103,7 @@ else if (contains($exist:path, "/resources/")) then
     </dispatch>
 
 else
+    (: everything else is passed through :)
     <ignore xmlns="http://exist.sourceforge.net/NS/exist">
         <cache-control cache="yes"/>
     </ignore>
