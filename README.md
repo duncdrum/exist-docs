@@ -21,22 +21,24 @@ This prototype is based on recent discussions about how to improve exist-db's do
 1.  Download  the ``exist_docs-3.0.0.xar`` file from GitHub [releases](https://github.com/duncdrum/exist-docs/releases) page.
 2.  Open the [dashboard](http://localhost:8080/exist/apps/dashboard/index.html) of your eXist-db instance and click on ``package manager``.
     1.  Click on the ``add package`` symbol in the upper left corner and select the ``.xar`` file you just downloaded.
-3.   You have successfully installed exist_docs into exist.
+3.  You have successfully installed exist_docs into exist.
 
 ### Building from source
 1.  Download, fork or clone this GitHub repository
 2.  There are two default build targets in ``build.xml``:
     *   ``dev`` including *all* files from the source folder including those with potentially sensitive information.
     *   ``deploy`` is the official release. It excludes files necessary for development but that have no effect upon deployment.
-3.  Calling ``ant``in your CLI will build both files:    
-```bash
-cd exist_docs
-ant
-```
-   1. to only build a specific target call either ``dev`` or ``deploy`` like this:
-   ```bash   
-   ant deploy
-   ```   
+3.  Call ``ant``in your CLI to build:
+    *   both files:    
+    ```bash
+    $ cd exist_docs
+    $ ant
+    ```
+    *   either ``dev`` or ``deploy``:
+    ```bash
+    $ cd exist_docs  
+    $ ant deploy
+    ```   
 
 If you see ``BUILD SUCCESSFUL`` ant has generated a ``exist_docs-3.0.0.xar`` file in the ``build/`` folder. To install it, follow the instructions [above](#installation).
 
