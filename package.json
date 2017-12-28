@@ -25,9 +25,12 @@
     "bootstrap": "^3.3.7",
     "ekko-lightbox": "^5.3.0",
     "font-awesome": "^4.7.0",
-    "jquery": "^1.12.3",
+    "jquery": "^1.12.4",
     "jquery-match-height": "^0.7.2",
     "jquery.scrollto": "^2.1.1",
-    "prism": "^4.1.2"
+    "prism": "^4.1.2",
+    "prism-react": "^1.0.2",
+    "react": "^16.2.0",
+    "recompose": "^0.26.0"
   }
 }
